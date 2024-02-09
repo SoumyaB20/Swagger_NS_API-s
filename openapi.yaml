@@ -1,0 +1,5888 @@
+openapi: 3.0.0
+info:
+  title: Project Allocation API
+  version: 1.0.0
+
+tags:
+  - name: Project Allocation
+
+servers:
+  - url: https://restlets.api.netsuite.com
+
+paths:
+  /app/site/hosting/restlet.nl:
+    post:
+      operationId: one
+      tags:
+        - Project Allocation
+      summary: Create Project Allocation
+      description: |
+        This POST request is to create a Project Allocation through PCF.
+        The Sample URL looks like - https://restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=2506&deploy=1
+      requestBody:
+        description: Project Allocation data
+        required: true
+        content:
+          application/json:
+            schema:
+               $ref: "#/components/schemas/ProjectAllocationRequest"
+      parameters:
+        - in: query
+          name: script
+          description: The script parameter
+          required: true
+          schema:
+            type: integer
+        - in: query
+          name: deploy
+          description: The deploy parameter
+          required: true
+          schema:
+            type: integer
+      responses:
+        '201':
+          description: Record created successfully
+          content:
+            application/json:
+              schema:
+                 $ref: "#/components/schemas/ProjectAllocationResponse201"
+
+    put:
+      tags:
+        - Project Allocation
+      summary: Updation during Prospect Creation
+      description: |
+        This PUT request for updating the details while creating a Prospect through NetSuite.
+        The Sample URL looks like - https://restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=2506&deploy=1
+      requestBody:
+        description: Project Allocation data
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ProjectAllocationRequest_1"
+      parameters:
+        - in: query
+          name: script
+          description: The script parameter
+          required: true
+          schema:
+            type: integer
+        - in: query
+          name: deploy
+          description: The deploy parameter
+          required: true
+          schema:
+            type: integer
+      responses:
+        '201':
+          description: Record updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AccountCreationResponse"
+  
+    get:
+      tags:
+        - Project Allocation
+      summary: Get SOW by ID
+      description: |
+        This GET request is processed for creating a SOW which returns the SOW ID and Opportunity ID.
+        The Sample URL looks like - https://restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=2506&deploy=1
+      operationId: getOpportunityById
+      parameters:
+        - name: Request Type
+          in: query
+          description: like GET
+          required: true
+          schema:
+            type: string
+
+        - name: Id
+          in: query
+          description: ID of the opportunity
+          required: true
+          schema:
+            type: string
+        - name: Name
+          in: query
+          description: Name of the opportunity
+          required: true
+          schema:
+            type: string
+        - name: Opportunity_Start_Date__c
+          in: query
+          description: Start date of the opportunity
+          required: true
+          schema:
+            type: string
+            format: date
+        - name: AccountId
+          in: query
+          description: ID of the account related to the opportunity
+          required: true
+          schema:
+            type: string
+        - name: Amount
+          in: query
+          description: Amount of the opportunity
+          required: true
+          schema:
+            type: number
+        - name: Project_Location__c
+          in: query
+          description: Project location of the opportunity
+          required: true
+          schema:
+            type: string
+        - name: Work_Location__c
+          in: query
+          description: Work location of the opportunity
+          required: true
+          schema:
+            type: string
+        - name: SOW_Status__c
+          in: query
+          description: SOW status of the opportunity
+          required: true
+          schema:
+            type: string
+        - name: Delivery_Model__c
+          in: query
+          description: Delivery model of the opportunity
+          required: true
+          schema:
+            type: string
+        - name: Billing_Type__c
+          in: query
+          description: Billing type of the opportunity
+          required: true
+          schema:
+            type: string
+        - name: SOW_Start_Date__c
+          in: query
+          description: Start date of SOW for the opportunity
+          required: true
+          schema:
+            type: string
+            format: date
+        - name: SOW_End_Date__c
+          in: query
+          description: End date of SOW for the opportunity
+          required: true
+          schema:
+            type: string
+            format: date
+        - name: SOW_Currency__c
+          in: query
+          description: Currency of SOW for the opportunity
+          required: true
+          schema:
+            type: string
+        - name: Item__c
+          in: query
+          description: Item for the opportunity
+          required: true
+          schema:
+            type: string
+        - name: Is_PO_Required__c
+          in: query
+          description: Flag indicating if PO is required
+          required: true
+          schema:
+            type: boolean
+        - name: SOW_Amount__c
+          in: query
+          description: Amount of SOW for the opportunity
+          required: true
+          schema:
+            type: number
+        - name: Account_Subsidiary__c
+          in: query
+          description: Subsidiary of the account for the opportunity
+          required: true
+          schema:
+            type: string
+        - name: Opportunity_ID__c
+          in: query
+          description: Opportunity ID for the opportunity
+          required: true
+          schema:
+            type: string
+        - name: Account_Name
+          in: query
+          description: Name of the account for the opportunity
+          required: true
+          schema:
+            type: string
+        - name: Account_ID__c
+          in: query
+          description: ID of the account for the opportunity
+          required: true
+          schema:
+            type: string
+
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectAllocationResponse201_1'
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: Opportunity not found
+
+  /app/site/hosting/{restletParameter}:
+    post:
+      operationId: two
+      tags:
+        - Project Allocation
+      summary: For Prospect Creation
+      description: |
+        Endpoint for creating project allocations.
+        The Sample URL looks like - https://restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=2506&deploy=1
+      requestBody:
+        description: Project Allocation data
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ProjectAllocationRequest_1"
+      parameters:
+        - in: path
+          name: restletParameter
+          description: please write "restlet.nl" in the below textbox
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: script
+          description: The script parameter
+          required: true
+          schema:
+            type: integer
+        - in: query
+          name: deploy
+          description: The deploy parameter
+          required: true
+          schema:
+            type: integer
+      responses:
+        '201':
+          description: Record created successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AccountCreationResponse"
+
+  /rest_flash_actuals(1791):
+    post:
+      tags:
+        - Project Allocation
+      summary: Provides Transaction details
+      description: |
+        API provides the response with Draft flash numbers and transactions that are posted on requested duration or period o SFDC 
+        The Sample URL looks like -https://restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=1791&deploy=1
+      requestBody:
+        description: Project Allocation data
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/1791"
+      parameters:
+        - in: query
+          name: script
+          description: The script parameter
+          required: true
+          schema:
+            type: integer
+        - in: query
+          name: deploy
+          description: The deploy parameter
+          required: true
+          schema:
+            type: integer
+      responses:
+        '201':
+          description: Record created successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/1791_Response"
+
+  /rest_m_menu_dashboard_otg(1232):
+    post:
+      tags:
+        - On The Go
+      summary: To Fetch User Details uisng EmailID
+      description: |
+        Used by OTG to get dashboard count of TS,
+        The Sample URL looks like - https://restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=1232&deploy=1
+      requestBody:
+        description: Project Allocation data
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/1232"
+      parameters:
+        - in: query
+          name: script
+          description: The script parameter
+          required: true
+          schema:
+            type: integer
+        - in: query
+          name: deploy
+          description: The deploy parameter
+          required: true
+          schema:
+            type: integer
+      responses:
+        '201':
+          description: Record created successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/1232_Response"
+
+    get:
+      tags:
+        - On The Go
+      summary: Get SOW by ID
+      description: |
+        This GET request is processed for creating a SOW which returns the SOW ID and Opportunity ID.
+        The Sample URL looks like - https://restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=2506&deploy=1
+      # operationId: getOpportunityById
+      parameters:
+        - name: Request Type
+          in: query
+          description: like GET
+          required: true
+          schema:
+            type: string
+
+        - name: Id
+          in: query
+          description: ID of the opportunity
+          required: true
+          schema:
+            type: string
+        - name: Name
+          in: query
+          description: Name of the opportunity
+          required: true
+          schema:
+            type: string
+        - name: Opportunity_Start_Date__c
+          in: query
+          description: Start date of the opportunity
+          required: true
+          schema:
+            type: string
+            format: date
+        - name: AccountId
+          in: query
+          description: ID of the account related to the opportunity
+          required: true
+          schema:
+            type: string
+        - name: Amount
+          in: query
+          description: Amount of the opportunity
+          required: true
+          schema:
+            type: number
+        - name: Project_Location__c
+          in: query
+          description: Project location of the opportunity
+          required: true
+          schema:
+            type: string
+        - name: Work_Location__c
+          in: query
+          description: Work location of the opportunity
+          required: true
+          schema:
+            type: string
+        - name: SOW_Status__c
+          in: query
+          description: SOW status of the opportunity
+          required: true
+          schema:
+            type: string
+        - name: Delivery_Model__c
+          in: query
+          description: Delivery model of the opportunity
+          required: true
+          schema:
+            type: string
+        - name: Billing_Type__c
+          in: query
+          description: Billing type of the opportunity
+          required: true
+          schema:
+            type: string
+        - name: SOW_Start_Date__c
+          in: query
+          description: Start date of SOW for the opportunity
+          required: true
+          schema:
+            type: string
+            format: date
+        - name: SOW_End_Date__c
+          in: query
+          description: End date of SOW for the opportunity
+          required: true
+          schema:
+            type: string
+            format: date
+        - name: SOW_Currency__c
+          in: query
+          description: Currency of SOW for the opportunity
+          required: true
+          schema:
+            type: string
+        - name: Item__c
+          in: query
+          description: Item for the opportunity
+          required: true
+          schema:
+            type: string
+        - name: Is_PO_Required__c
+          in: query
+          description: Flag indicating if PO is required
+          required: true
+          schema:
+            type: boolean
+        - name: SOW_Amount__c
+          in: query
+          description: Amount of SOW for the opportunity
+          required: true
+          schema:
+            type: number
+        - name: Account_Subsidiary__c
+          in: query
+          description: Subsidiary of the account for the opportunity
+          required: true
+          schema:
+            type: string
+        - name: Opportunity_ID__c
+          in: query
+          description: Opportunity ID for the opportunity
+          required: true
+          schema:
+            type: string
+        - name: Account_Name
+          in: query
+          description: Name of the account for the opportunity
+          required: true
+          schema:
+            type: string
+        - name: Account_ID__c
+          in: query
+          description: ID of the account for the opportunity
+          required: true
+          schema:
+            type: string
+
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectAllocationResponse201_1'
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: Opportunity not found
+          
+          
+  /RESTlet_Termination(1643):
+    get:
+      tags:
+        - Fusion
+      summary: Get SOW by ID
+      description: |
+        API to create Fusion- Employee JSON Master cuctom record 
+        The Sample URL looks like - https://restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=1643&deploy=1
+      # operationId: getOpportunityById
+      parameters:
+        - name: Request Type
+          in: query
+          description: like GET
+          required: true
+          schema:
+            type: string
+
+        - name: Date
+          in: query
+          description: Date(DD) 
+          required: true
+          schema:
+            type: integer
+        - name: Month
+          in: query
+          description: Month(MM)
+          required: true
+          schema:
+            type: integer
+        - name: Year
+          in: query
+          description: Year(YYYY)
+          required: false
+          schema:
+            type: integer
+
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/1643_Response'
+        '400':
+          description: Invalid request parameters
+        '404':
+          description: Expense not found
+ 
+ 
+  /REST_Emp_Future_Termination(1891):
+    get:
+      tags:
+        - Fusion
+      summary: Get SOW by ID
+      description: |
+        Setting Future Term Date on employee record from Fusion
+        The Sample URL looks like - https://restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=1891&deploy=1
+      parameters:
+      - name: Request Type
+        in: query
+        description: like GET
+        required: true
+        schema:
+          type: string
+
+      - name: PersonId
+        in: query
+        description: ID of the person/employee
+        required: true
+        schema:
+          type: integer
+      - name: PersonNumber
+        in: query
+        description: Employee number
+        required: true
+        schema:
+          type: string
+      - name: AssignmentId
+        in: query
+        description: ID of the employee's assignment
+        required: true
+        schema:
+          type: integer
+      - name: AssignmentNumber
+        in: query
+        description: Assignment number
+        required: true
+        schema:
+          type: string
+      - name: ActionCode
+        in: query
+        description: Action code related to termination
+        required: true
+        schema:
+          type: string
+      - name: WorkerType
+        in: query
+        description: Type of the worker (e.g., "E" for Employee)
+        required: true
+        schema:
+          type: string
+      - name: BusinessUnitName
+        in: query
+        description: Name of the business unit
+        required: true
+        schema:
+          type: string
+      - name: NotificationDate
+        in: query
+        description: Date of notification
+        required: true
+        schema:
+          type: string
+          format: date-time
+      - name: AssignmentStatusType
+        in: query
+        description: Status type of the assignment (e.g., "INACTIVE")
+        required: true
+        schema:
+          type: string
+      - name: TerminationDate
+        in: query
+        description: Date of termination
+        required: true
+        schema:
+          type: string
+          format: date-time
+      - name: LastWorkingDate
+        in: query
+        description: Date of the last working day (can be null)
+        required: false
+        schema:
+          type: string
+          format: date-time
+      - name: TerminationReason
+        in: query
+        description: Reason for termination
+        required: true
+        schema:
+          type: string
+      - name: TerminationAction
+        in: query
+        description: Type of termination action (e.g., "Voluntary Separation")
+        required: true
+        schema:
+          type: string
+
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/1891_Response'
+        '400':
+          description: Invalid request parameters
+        '404':
+          description: Expense not found
+          
+          
+  
+  /REST_New_ExpeM_Expense_On_Save_OTG_V2.0(2008):
+    get:
+      tags:
+        - On The Go
+      summary: Get SOW by ID
+      description: |
+        API to create Fusion- Employee JSON Master cuctom record 
+        The Sample URL looks like - https://restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=1891&deploy=1
+      # operationId: getOpportunityById
+      parameters:
+        - name: Request Type
+          in: query
+          description: like GET
+          required: true
+          schema:
+            type: string
+
+        - name: EmailId
+          in: query
+          description: Email ID of the requester
+          required: true
+          schema:
+            type: string
+        - name: RequestType
+          in: query
+          description: Type of the request
+          required: true
+          schema:
+            type: string
+        - name: ExpID
+          in: query
+          description: ID of the expense
+          required: false
+          schema:
+            type: string
+        - name: Project
+          in: query
+          description: Project name
+          required: true
+          schema:
+            type: string
+        - name: Purpose
+          in: query
+          description: Purpose of the expense
+          required: true
+          schema:
+            type: string
+        - name: expenseDate
+          in: query
+          description: Date of the expense
+          required: true
+          schema:
+            type: string
+            format: date
+        - name: Amount
+          in: query
+          description: Amount of the expense
+          required: true
+          schema:
+            type: number
+        - name: Category
+          in: query
+          description: Category of the expense
+          required: true
+          schema:
+            type: string
+        - name: IsBillable
+          in: query
+          description: Flag indicating if the expense is billable
+          required: true
+          schema:
+            type: boolean
+        - name: Currency
+          in: query
+          description: Currency of the expense
+          required: true
+          schema:
+            type: string
+        - name: Date
+          in: query
+          description: Date of the expense
+          required: true
+          schema:
+            type: string
+        - name: ImgData
+          in: query
+          description: Image data of the expense
+          required: true
+          schema:
+            type: string
+        - name: Memo
+          in: query
+          description: Memo for the expense
+          required: true
+          schema:
+            type: string
+        - name: RefId
+          in: query
+          description: Reference ID of the expense
+          required: true
+          schema:
+            type: string
+        - name: RefNo
+          in: query
+          description: Reference number of the expense
+          required: true
+          schema:
+            type: string
+        - name: ImgdataPDF
+          in: query
+          description: Flag indicating if the image data is in PDF format
+          required: true
+          schema:
+            type: boolean
+
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/2008_Response'
+        '400':
+          description: Invalid request parameters
+        '404':
+          description: Expense not found
+          
+          
+  /REST_M_AllocationDetails_OTG_V2.0(2020):
+    get:
+      tags:
+        - On The Go
+      summary: Get SOW by ID
+      description: |
+        Used by OTG to get resource allocations 
+        The Sample URL looks like - https://restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=2020&deploy=1
+      # operationId: getOpportunityById
+      parameters:
+        - name: Request Type
+          in: query
+          description: like GET
+          required: true
+          schema:
+            type: string
+
+        - name: Email ID
+          in: query
+          description: Email (abc@brillio.com) 
+          required: true
+          schema:
+            type: string
+        - name: Data
+          in: query
+          description: Additional Data
+          required: true
+          schema:
+            type: array
+            items: {}
+
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/2020_Response'
+        '400':
+          description: Invalid request parameters
+        '404':
+          description: Expense not found
+
+  /REST_M_Expense_Project_Details_V2.0(2007):
+    get:
+      tags:
+        - On The Go
+      summary: Get SOW by ID
+      description: |
+        Used by OTG to Fetch the expense Supporting funtions, such as Projects, currency
+        The Sample URL looks like - https://restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=2007&deploy=1
+      parameters:
+        - name: Request Type
+          in: query
+          description: like GET
+          required: true
+          schema:
+            type: string
+
+        - name: Email ID
+          in: query
+          description: Email (abc@brillio.com) 
+          required: true
+          schema:
+            type: string
+        - name: Data
+          in: query
+          description: Additional data for the request
+          required: true
+          schema:
+            type: object
+            properties:
+              Date:
+                type: string
+                format: date
+                description: Specific date for user details
+
+
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/2007_Response'
+        '400':
+          description: Invalid request parameters
+        '404':
+          description: Expense not found
+
+
+  /REST_M_NotSubmiited_TS V2.0(2016):
+    get:
+      tags:
+        - On The Go
+      summary: jdc
+      description: |
+        Used by OTG to get Timesheet Submitted and NOt submitted 
+        The Sample URL looks like - https://restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=2016&deploy=1
+      parameters:
+        - name: Email ID
+          in: query
+          description: Email (abc@brillio.com) 
+          required: true
+          schema:
+            type: string
+        - name: Data
+          in: query
+          description: Additional data for the request
+          required: true
+          schema:
+            type: object
+            properties:
+              Week Start Date:
+                type: string
+                format: date
+                description: Specific date for user details
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/2016_Response'
+        '400':
+          description: Invalid request parameters
+        '404':
+          description: Expense not found
+
+ 
+  /REST_M_RealTime_Allocation_Data V2.0(2018):
+    get:
+      tags:
+        - On The Go
+      summary: jdc
+      description: |
+        Used by OTG to create, submit timesheets
+        The Sample URL looks like - https://restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=2018&deploy=1
+      parameters:
+        - name: Request Type
+          in: query
+          description: like GET
+          required: true
+          schema:
+            type: string
+
+        - name: Email ID
+          in: query
+          description: Email (abc@brillio.com) 
+          required: true
+          schema:
+            type: string
+        - name: Data
+          in: query
+          description: Additional data for the request
+          required: true
+          schema:
+            type: object
+            properties:
+              Week Start Date:
+                type: string
+                format: date
+                description: Specific date for user details
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/2018_Response'
+        '400':
+          description: Invalid request parameters
+        '404':
+          description: Expense not found
+                
+  
+  /REST_M_Travel_Approval_OTG V2.0(2013):
+    get:
+      tags:
+        - On The Go
+      summary: jdc
+      description: |
+        Used by OTG to get travel approval list and to approve or reject them 
+        The Sample URL looks like - https://restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=2013&deploy=1
+      parameters:
+        - name: Request Type
+          in: query
+          description: like GET
+          required: true
+          schema:
+            type: string
+
+        - name: Email ID
+          in: query
+          description: Email (abc@brillio.com) 
+          required: true
+          schema:
+            type: string
+        - name: Data
+          in: query
+          description: Additional data for the request
+          required: true
+          schema:
+            type: array
+            items: {}
+            
+              
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/2013_Response'
+        '400':
+          description: Invalid request parameters
+        '404':
+          description: Expense not found
+
+
+  /Rest_OTG_birthday_newJoinee(2021):
+    get:
+      tags:
+        - On The Go
+      summary: jdc
+      description: |
+        Used by OTG to get birthday of peers
+        The Sample URL looks like - https://restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=2021&deploy=1
+      parameters:
+        - name: Request Type
+          in: query
+          description: like GET
+          required: true
+          schema:
+            type: string
+
+        - name: Email ID
+          in: query
+          description: Email (abc@brillio.com) 
+          required: true
+          schema:
+            type: string
+        # - name: Data
+        #   in: query
+        #   description: Additional data for the request
+        #   required: true
+        #   schema:
+        #     type: array
+        #     items: {}
+            
+              
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/2021_Response'
+        '400':
+          description: Invalid request parameters
+        '404':
+          description: Expense not found
+
+ 
+
+  /REST_OTG_TS_Approve_Reject(2083):
+    get:
+      tags:
+        - On The Go
+      summary: Quick Time Approval Pool
+      description: |
+        Used by OTG to Approve the Timesheets
+        The Sample URL looks like - https://restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=2083&deploy=1
+      parameters:
+        - name: Request Type
+          in: query
+          description: like GET
+          required: true
+          schema:
+            type: string
+
+        - name: Email ID
+          in: query
+          description: Email (abc@brillio.com) 
+          required: true
+          schema:
+            type: string
+        - name: Data
+          in: query
+          description: Additional data for the request
+          required: true
+          schema:
+            type: array
+            items: {}
+            
+              
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/2083_Response'
+        '400':
+          description: Invalid request parameters
+        '404':
+          description: Expense not found
+
+
+  # /REST | ResourceAllocationVariance:
+  #   post:
+  #     # operationId: one
+  #     tags:
+  #       - BI
+  #     summary: Create Project Allocation
+  #     description: |
+  #       Script is used to Send Resource Allocation Detail for the resource that are allocated today.
+  #       The Sample URL looks like - https://restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=2428&deploy=1
+  #     requestBody:
+  #       description: Project Allocation data
+  #       required: true
+  #       content:
+  #         application/json:
+  #           schema:
+  #             $ref: "#/components/schemas/2428"
+  #     parameters:
+  #       - in: query
+  #         name: script
+  #         description: The script parameter
+  #         required: true
+  #         schema:
+  #           type: integer
+  #       - in: query
+  #         name: deploy
+  #         description: The deploy parameter
+  #         required: true
+  #         schema:
+  #           type: integer
+  #     responses:
+  #       '201':
+  #         description: Record created successfully
+  #         content:
+  #           application/json:
+  #             schema:
+  #               $ref: "#/components/schemas/2428_Response"
+
+
+
+  /FUEL |REST_Edit_Allocation(2444):
+    post:
+      tags:
+        - FUEL
+      summary: Create Project Allocation
+      description: |
+        This script is used to create Edit Allocation Record.
+        The Sample URL looks like - https://restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=2444deploy=1
+      requestBody:
+        description: Project Allocation data
+        required: true
+        content:
+          application/json:
+            schema:
+               $ref: "#/components/schemas/2444"
+      parameters:
+        - in: query
+          name: script
+          description: The script parameter
+          required: true
+          schema:
+            type: integer
+        - in: query
+          name: deploy
+          description: The deploy parameter
+          required: true
+          schema:
+            type: integer
+      responses:
+        '201':
+          description: Record created successfully
+          content:
+            application/json:
+              schema:
+                 $ref: "#/components/schemas/2444_Response"
+                 
+                 
+  /REST_edit_Allocation_withdraw(2445) :
+    put:
+      tags:
+        - FUEL
+      summary: Edit Allocation Request
+      description: |
+        this script is used to cancelled edit allocation request from fuel
+        The Sample URL looks like - https://restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=2445&deploy=1
+      requestBody:
+        description: Project Allocation data
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/2445"
+      parameters:
+        - in: query
+          name: script
+          description: The script parameter
+          required: true
+          schema:
+            type: integer
+        - in: query
+          name: deploy
+          description: The deploy parameter
+          required: true
+          schema:
+            type: integer
+      responses:
+        '201':
+          description: Record updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/2445_Response"
+
+                 
+  /REST_Extension_Withdraw(2446) :
+    put:
+      tags:
+        - FUEL
+      summary: Cancel Extension Request
+      description: |
+        Script is used to cancelled Extension Request from fuel
+        The Sample URL looks like - https://restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=2446&deploy=1
+      requestBody:
+        description: FUEL
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/2446"
+      parameters:
+        - in: query
+          name: script
+          description: The script parameter
+          required: true
+          schema:
+            type: integer
+        - in: query
+          name: deploy
+          description: The deploy parameter
+          required: true
+          schema:
+            type: integer
+          
+        # - in: query
+        #   name: Remark
+        #   description: The deploy parameter
+        #   required: true
+        #   schema:
+        #     type: strin
+
+      responses:
+        '201':
+          description: Record updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/2446_Response"
+
+  /REST_Allocation_Withdraw(2447) :
+    put:
+      tags:
+        - FUEL
+      summary: Intitate Allocation Request
+      description: |
+        Script is used to cancelled initiate allocation request from fuel
+        The Sample URL looks like - https://restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=2447&deploy=1
+      requestBody:
+        description: FUEL
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/2447"
+      parameters:
+        - in: query
+          name: script
+          description: The script parameter
+          required: true
+          schema:
+            type: integer
+        - in: query
+          name: deploy
+          description: The deploy parameter
+          required: true
+          schema:
+            type: integer
+
+      responses:
+        '201':
+          description: Record updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/2447_Response"
+                
+                
+
+  /FUEL |Rest_Stakeholder_details(2449):
+    post:
+      tags:
+        - FUEL
+      summary: Updates Delivery Manager
+      description: |
+        This sscript is used to update delivery manager and project manager on the project record
+        The Sample URL looks like - https://restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=2449deploy=1
+      requestBody:
+        description: Project Allocation data
+        required: true
+        content:
+          application/json:
+            schema:
+               $ref: "#/components/schemas/2449"
+      parameters:
+        - in: query
+          name: script
+          description: The script parameter
+          required: true
+          schema:
+            type: integer
+        - in: query
+          name: deploy
+          description: The deploy parameter
+          required: true
+          schema:
+            type: integer
+      responses:
+        '201':
+          description: Record created successfully
+          content:
+            application/json:
+              schema:
+                 $ref: "#/components/schemas/2449_Response"
+
+
+
+  /FUEL|REST Allocation Extension(2450):
+    post:
+      tags:
+        - FUEL
+      summary: To Fetch User Details uisng EmailID
+      description: |
+        Script is used to Create allocation extension request
+        The Sample URL looks like - https://restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=2450&deploy=1
+      requestBody:
+        description: FUEL
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/2450"
+      parameters:
+        - in: query
+          name: script
+          description: The script parameter
+          required: true
+          schema:
+            type: integer
+        - in: query
+          name: deploy
+          description: The deploy parameter
+          required: true
+          schema:
+            type: integer
+      responses:
+        '201':
+          description: Record created successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/2450_Response"
+
+
+  /FUEL|REST Allocation Request(2451):
+    post:
+      tags:
+        - FUEL
+      summary: Create allocation Request
+      description: |
+        Script is used to Create allocation request 
+        The Sample URL looks like - https://restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=2451&deploy=1
+      requestBody:
+        description: FUEL
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/2451"
+      parameters:
+        - in: query
+          name: script
+          description: The script parameter
+          required: true
+          schema:
+            type: integer
+        - in: query
+          name: deploy
+          description: The deploy parameter
+          required: true
+          schema:
+            type: integer
+      responses:
+        '201':
+          description: Record created successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/2451_Response"
+
+
+  /FUEL|REST Allocation Request(2452):
+    post:
+      tags:
+        - FUEL
+      summary: Create Renewal Request
+      description: |
+        Script is used to create  Renewal request 
+        The Sample URL looks like - https://restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=2452&deploy=1
+      requestBody:
+        description: FUEL
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/2452"
+      parameters:
+        - in: query
+          name: script
+          description: The script parameter
+          required: true
+          schema:
+            type: integer
+        - in: query
+          name: deploy
+          description: The deploy parameter
+          required: true
+          schema:
+            type: integer
+      responses:
+        '201':
+          description: Record created successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/2452_Response"
+
+
+  /FUEL |Rest_project Renewal withdraw(2453) :
+    put:
+      tags:
+        - FUEL
+      summary: Cancel Extension Request
+      description: |
+        Script is used to withdraw/cancelled
+        The Sample URL looks like - https://restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=2453&deploy=1
+      requestBody:
+        description: FUEL
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/2453"
+      parameters:
+        - in: query
+          name: script
+          description: The script parameter
+          required: true
+          schema:
+            type: integer
+        - in: query
+          name: deploy
+          description: The deploy parameter
+          required: true
+          schema:
+            type: integer
+      responses:
+        '201':
+          description: Record updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/2453_Response"
+
+  /FUEL|Rest Percent allocation Change(2454):
+    post:
+      tags:
+        - FUEL
+      summary: Percent Allocation
+      description: |
+        Script is used to create percent allocation change request 
+        The Sample URL looks like - https://restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=2454&deploy=1
+      requestBody:
+        description: FUEL
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/2454"
+      parameters:
+        - in: query
+          name: script
+          description: The script parameter
+          required: true
+          schema:
+            type: integer
+        - in: query
+          name: deploy
+          description: The deploy parameter
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Record created successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/2454_Response"
+        '404':
+          description: Error
+          content:
+            application/json:
+              example:
+                message : "Please Enter the Values"
+
+  /FUEL|REST_Release_Request(2455):
+    post:
+      tags:
+        - FUEL
+      summary: Create Release request
+      description: |
+        Script is used to create Release request 
+        The Sample URL looks like - https://restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=2455&deploy=1
+      requestBody:
+        description: FUEL
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/2455"
+      parameters:
+        - in: query
+          name: script
+          description: The script parameter
+          required: true
+          schema:
+            type: integer
+        - in: query
+          name: deploy
+          description: The deploy parameter
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Record created successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/2455_Response"
+
+  /Rest_Prospect_Automation_2.0(2516):
+    post:
+      tags:
+        - SFDC
+      summary: Create Prospect to SFDC
+      description: |
+        Script is used to create prospect and update the customer from SFDC to NS
+        The Sample URL looks like - https://restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=2516&deploy=1
+      requestBody:
+        description: SFDC
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/2516"
+      parameters:
+        - in: query
+          name: script
+          description: The script parameter
+          required: true
+          schema:
+            type: integer
+        - in: query
+          name: deploy
+          description: The deploy parameter
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Record created successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/2516_Response"
+                
+
+    put:
+      tags:
+        - SFDC
+      summary: Update Prospect to SFDC
+      description: |
+        Script is used to create prospect and update the customer from SFDC to NS
+        The Sample URL looks like - https://restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=2516&deploy=1
+      requestBody:
+        description: SFDC
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/2516_Update"
+      parameters:
+        - in: query
+          name: script
+          description: The script parameter
+          required: true
+          schema:
+            type: integer
+        - in: query
+          name: deploy
+          description: The deploy parameter
+          required: true
+          schema:
+            type: integer
+      responses:
+        '201':
+          description: Record updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/2516_Response"
+                
+  /REST_SoW_Creation_SFDC_2.0(2517):
+    get:
+      tags:
+        - SFDC
+      summary: Create SOW to NS
+      description: |
+        Script is used to create SOW from SFDC to NS
+        The Sample URL looks like - https://restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=2517&deploy=1
+      parameters:
+        - name: Request Type
+          in: query
+          description: like GET
+          required: true
+          schema:
+            type: string
+
+        - name: Id
+          in: query
+          description: ID of the opportunity
+          required: true
+          schema:
+            type: string
+        - name: Name
+          in: query
+          description: Name of the opportunity
+          required: true
+          schema:
+            type: string
+        - name: Opportunity_Start_Date__c
+          in: query
+          description: Start date of the opportunity
+          required: true
+          schema:
+            type: string
+            format: date
+        - name: AccountId
+          in: query
+          description: ID of the account related to the opportunity
+          required: true
+          schema:
+            type: string
+        - name: Amount
+          in: query
+          description: Amount of the opportunity
+          required: true
+          schema:
+            type: number
+        - name: Project_Location__c
+          in: query
+          description: Project location of the opportunity
+          required: true
+          schema:
+            type: string
+        - name: Work_Location__c
+          in: query
+          description: Work location of the opportunity
+          required: true
+          schema:
+            type: string
+        - name: SOW_Status__c
+          in: query
+          description: SOW status of the opportunity
+          required: true
+          schema:
+            type: string
+        - name: Delivery_Model__c
+          in: query
+          description: Delivery model of the opportunity
+          required: true
+          schema:
+            type: string
+        - name: Billing_Type__c
+          in: query
+          description: Billing type of the opportunity
+          required: true
+          schema:
+            type: string
+        - name: SOW_Start_Date__c
+          in: query
+          description: Start date of SOW for the opportunity
+          required: true
+          schema:
+            type: string
+            format: date
+        - name: SOW_End_Date__c
+          in: query
+          description: End date of SOW for the opportunity
+          required: true
+          schema:
+            type: string
+            format: date
+        - name: SOW_Currency__c
+          in: query
+          description: Currency of SOW for the opportunity
+          required: true
+          schema:
+            type: string
+        - name: Item__c
+          in: query
+          description: Item for the opportunity
+          required: true
+          schema:
+            type: string
+        - name: Is_PO_Required__c
+          in: query
+          description: Flag indicating if PO is required
+          required: true
+          schema:
+            type: boolean
+        - name: SOW_Amount__c
+          in: query
+          description: Amount of SOW for the opportunity
+          required: true
+          schema:
+            type: number
+        - name: Account_Subsidiary__c
+          in: query
+          description: Subsidiary of the account for the opportunity
+          required: true
+          schema:
+            type: string
+        - name: Opportunity_ID__c
+          in: query
+          description: Opportunity ID for the opportunity
+          required: true
+          schema:
+            type: string
+        - name: Account_Name
+          in: query
+          description: Name of the account for the opportunity
+          required: true
+          schema:
+            type: string
+        - name: Account_ID__c
+          in: query
+          description: ID of the account for the opportunity
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/2517_Response'
+        '400':
+          description: Invalid ID supplied
+        '404':
+          description: Opportunity not found
+          
+          
+
+  /Rest_Universal_API(2532):
+    post:
+      tags:
+        - BI
+      summary: Create Release request
+      description: |
+        Script is used to fetch and send result based on the query stored in the Custom Record.
+        The Sample URL looks like - https://restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=2432&deploy=1
+      requestBody:
+        description: BI
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/2532"
+      parameters:
+        - in: query
+          name: script
+          description: The script parameter
+          required: true
+          schema:
+            type: integer
+        - in: query
+          name: deploy
+          description: The deploy parameter
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Record created successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/2532_Response"
+
+  /PoleStar Subsidiary Api(2261):
+    get:
+      tags:
+        - BI
+      summary: Send Details to PoleStar 
+      description: |
+        Sending Subsidiary details to PoleStar
+        The Sample URL looks like - https://restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=2007&deploy=1
+      parameters:
+        - name: Request Type
+          in: query
+          description: like GET
+          required: true
+          schema:
+            type: string
+
+        - name: Request Data
+          in: query
+          description: like Subsidiary
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/2261_Response'
+        '400':
+          description: Invalid request parameters
+        '404':
+          description: Expense not found
+
+
+  /PoleStar Account Api(2262):
+    get:
+      tags:
+        - BI
+      summary: Account Details to PoleStar 
+      description: |
+        API to Send Accounts details to PoleStar
+        The Sample URL looks like - https://restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=2262&deploy=1
+      parameters:
+        - name: Request Type
+          in: query
+          description: like GET
+          required: true
+          schema:
+            type: string
+
+        - name: Request Data
+          in: query
+          description: like Subsidiary
+          required: true
+          schema:
+            type: string
+
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/2262_Response'
+        '400':
+          description: Invalid request parameters
+        '404':
+          description: Expense not found
+
+  /PoleStar Project Api(2263):
+    get:
+      tags:
+        - BI
+      summary: Project Details to PoleStar 
+      description: |
+        Sending Project details to PoleStar
+        The Sample URL looks like - https://restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=2263&deploy=1
+      parameters:
+        - name: Request Type
+          in: query
+          description: like GET
+          required: true
+          schema:
+            type: string
+
+        - name: Request Data
+          in: query
+          description: like Subsidiary
+          required: true
+          schema:
+            type: string
+
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/2263_Response'
+        '400':
+          description: Invalid request parameters
+        '404':
+          description: Expense not found
+
+  /PoleStar Vendor Api(2264):
+    get:
+      tags:
+        - BI
+      summary: Vendor Details to PoleStar 
+      description: |
+        Sending Vendor details to PoleStar
+        The Sample URL looks like - https://restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=2264&deploy=1
+      parameters:
+        - name: Request Type
+          in: query
+          description: like GET
+          required: true
+          schema:
+            type: string
+
+        - name: Request Data
+          in: query
+          description: like Subsidiary
+          required: true
+          schema:
+            type: string
+
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/2264_Response'
+        '400':
+          description: Invalid request parameters
+        '404':
+          description: Expense not found
+
+  /PoleStar Region Api(2265):
+    get:
+      tags:
+        - BI
+      summary: Region Details to PoleStar 
+      description: |
+        Sending Region details to PoleStar
+        The Sample URL looks like - https://restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=2265&deploy=1
+      parameters:
+        - name: Request Type
+          in: query
+          description: like GET
+          required: true
+          schema:
+            type: string
+
+        - name: Request Data
+          in: query
+          description: like Subsidiary
+          required: true
+          schema:
+            type: string
+
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/2265_Response'
+        '400':
+          description: Invalid request parameters
+        '404':
+          description: Expense not found
+          
+  /PoleStar Practice Api(2266):
+    get:
+      tags:
+        - BI
+      summary: Region Details to PoleStar 
+      description: |
+        Sending Practice details to PoleStar
+        The Sample URL looks like - https://restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=2266&deploy=1
+      parameters:
+        - name: Request Type
+          in: query
+          description: like GET
+          required: true
+          schema:
+            type: string
+
+        - name: Request Data
+          in: query
+          description: like Subsidiary
+          required: true
+          schema:
+            type: string
+
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/2266_Response'
+        '400':
+          description: Invalid request parameters
+        '404':
+          description: Expense not found
+
+  /PoleStar Customer Api(2267):
+    get:
+      tags:
+        - BI
+      summary: Customer Details to PoleStar 
+      description: |
+        Sending Customers details to PoleStar
+        The Sample URL looks like - https://restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=2267&deploy=1
+      parameters:
+        - name: Request Type
+          in: query
+          description: like GET
+          required: true
+          schema:
+            type: string
+
+        - name: Request Data
+          in: query
+          description: like Subsidiary
+          required: true
+          schema:
+            type: string
+
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/2267_Response'
+        '400':
+          description: Invalid request parameters
+        '404':
+          description: Expense not found
+
+  /PoleStar Item Api(2268):
+    get:
+      tags:
+        - BI
+      summary: Item Details to PoleStar 
+      description: |
+        Sending Item details to PoleStar
+        The Sample URL looks like - https://restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=2268&deploy=1
+      parameters:
+        - name: Request Type
+          in: query
+          description: like GET
+          required: true
+          schema:
+            type: string
+
+        - name: Request Data
+          in: query
+          description: like Subsidiary
+          required: true
+          schema:
+            type: string
+
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/2268_Response'
+        '400':
+          description: Invalid request parameters
+        '404':
+          description: Expense not found
+
+  /PoleStar Resource Allocation Api(2270):
+    get:
+      tags:
+        - BI
+      summary: Sending Details to PoleStar 
+      description: |
+        Sending Resource Allocation for a date range to PoleStar
+        The Sample URL looks like - https://restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=2270&deploy=1
+      parameters:
+        - name: Request Type
+          in: query
+          description: like GET
+          required: true
+          schema:
+            type: string
+
+        - name: Request Data
+          in: query
+          description: like Resource Allocation
+          required: true
+          schema:
+            type: string
+        - name: Start Date
+          in: query
+          description: MM/DD/YYYY format
+          required: true
+          schema:
+            type: string
+        - name: End Date
+          in: query
+          description: MM/DD/YYYY format
+          required: true
+          schema:
+            type: string
+
+
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/2270_Response'
+        '400':
+          description: Invalid request parameters
+        '404':
+          description: Expense not found
+
+  /REST_API_Employee_Polestar_Table(2271):
+    get:
+      tags:
+        - BI
+      summary: Sending Details to PoleStar 
+      description: |
+        Sending Invocie transactions for a date range to PoleStar
+        The Sample URL looks like - https://restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=2271 &deploy=1
+      parameters:
+        - name: Request Type
+          in: query
+          description: like GET
+          required: true
+          schema:
+            type: string
+
+        - name: Request Data
+          in: query
+          description: like Resource Allocation
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/2271_Response'
+        '400':
+          description: Invalid request parameters
+        '404':
+          description: Expense not found
+
+  /REST_API_Employee_Polestar_Table(2272):
+    get:
+      tags:
+        - BI
+      summary: Location Details to PoleStar 
+      description: |
+        Sending Location details to PoleStar
+        The Sample URL looks like - https://restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=2272&deploy=1
+      parameters:
+        - name: Request Type
+          in: query
+          description: like GET
+          required: true
+          schema:
+            type: string
+
+        - name: Request Data
+          in: query
+          description: like Resource Allocation
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/2272_Response'
+        '400':
+          description: Invalid request parameters
+        '404':
+          description: Expense not found
+
+  /REST_API_Employee_Polestar_Table(2273):
+    get:
+      tags:
+        - BI
+      summary: External Project Details to PoleStar 
+      description: |
+        Sending External projects details to PoleStar
+        The Sample URL looks like - https://restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=2273&deploy=1
+      parameters:
+        - name: Request Type
+          in: query
+          description: like GET
+          required: true
+          schema:
+            type: string
+
+        - name: Request Data
+          in: query
+          description: like Resource Allocation
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/2273_Response'
+        '400':
+          description: Invalid request parameters
+        '404':
+          description: Expense not found
+          
+  /PoleStar OtherName Api(2275):
+    get:
+      tags:
+        - BI
+      summary: Other Name to PoleStar 
+      description: |
+        Sending Other Name Details  to PoleStar 
+        The Sample URL looks like - https://restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=2275&deploy=1
+      parameters:
+        - name: Request Type
+          in: query
+          description: like GET
+          required: true
+          schema:
+            type: string
+
+        - name: Request Data
+          in: query
+          description: like Resource Allocation
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/2275_Response'
+        '400':
+          description: Invalid request parameters
+        '404':
+          description: Expense not found
+
+  /PoleStar Time Api(2287):
+    get:
+      tags:
+        - BI
+      summary: Resource Allocatoin to PoleStar 
+      description: |
+        Sending Resource Allocation for a date range to PoleStar
+        The Sample URL looks like - https://restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=2287&deploy=1
+      parameters:
+        - name: Request Type
+          in: query
+          description: like GET
+          required: true
+          schema:
+            type: string
+
+        - name: Request Data
+          in: query
+          description: like Resource Allocation
+          required: true
+          schema:
+            type: string
+        - name: Start Date
+          in: query
+          description: MM/DD/YYYY format
+          required: true
+          schema:
+            type: string
+        - name: End Date
+          in: query
+          description: MM/DD/YYYY format
+          required: true
+          schema:
+            type: string
+
+
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/2287_Response'
+        '400':
+          description: Invalid request parameters
+        '404':
+          description: Expense not found
+
+  /Rest_Polestar_Api_Invoice(2288):
+    get:
+      tags:
+        - BI
+      summary: Invoice Transactions to PoleStar 
+      description: |
+        API to Send Invoice transactios for a date range to PoleStar
+        The Sample URL looks like - https://restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=2288&deploy=1
+      parameters:
+        - name: Request Type
+          in: query
+          description: like GET
+          required: true
+          schema:
+            type: string
+
+        - name: Request Data
+          in: query
+          description: like Resource Allocation
+          required: true
+          schema:
+            type: string
+        - name: Request Account
+          in: query
+          description: like Income
+          required: true
+          schema:
+            type: string
+        - name: Start Date
+          in: query
+          description: MM/DD/YYYY format 
+          required: true
+          schema:
+            type: string
+        - name: End Date
+          in: query
+          description: MM/DD/YYYY format
+          required: true
+          schema:
+            type: string
+
+
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+        '400':
+          description: Invalid request parameters
+        '404':
+          description: Expense not found
+          
+  /PoleStar Check Api(2276):
+    get:
+      tags:
+        - BI
+      summary: Check Details to PoleStar 
+      description: |
+        API to Send Check details to PoleStar
+        The Sample URL looks like - https://restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=2276&deploy=1
+      parameters:
+        - name: Request Type
+          in: query
+          description: like GET
+          required: true
+          schema:
+            type: string
+
+        - name: Request Data
+          in: query
+          description: like Resource Allocation
+          required: true
+          schema:
+            type: string
+        - name: Request Account
+          in: query
+          description: like Income
+          required: true
+          schema:
+            type: string
+        - name: Start Date
+          in: query
+          description: MM/DD/YYYY format 
+          required: true
+          schema:
+            type: string
+        - name: End Date
+          in: query
+          description: MM/DD/YYYY format
+          required: true
+          schema:
+            type: string
+
+
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+        '400':
+          description: Invalid request parameters
+        '404':
+          description: Expense not found
+
+  /PoleStar Credit Memo Api(2277):
+    get:
+      tags:
+        - BI
+      summary: Check Details to PoleStar 
+      description: |
+        Sending Credit Memo details to PoleStar
+        The Sample URL looks like - https://restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=2277&deploy=1
+      parameters:
+        - name: Request Type
+          in: query
+          description: like GET
+          required: true
+          schema:
+            type: string
+
+        - name: Request Data
+          in: query
+          description: like Resource Allocation
+          required: true
+          schema:
+            type: string
+        - name: Start Date
+          in: query
+          description: MM/DD/YYYY format 
+          required: true
+          schema:
+            type: string
+        - name: End Date
+          in: query
+          description: MM/DD/YYYY format
+          required: true
+          schema:
+            type: string
+
+
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+        '400':
+          description: Invalid request parameters
+        '404':
+          description: Expense not found
+
+  /PoleStar Journal Api(2278):
+    get:
+      tags:
+        - BI
+      summary: Journal Details to PoleStar 
+      description: |
+        Sending Journal transactios for a date range to PoleStar
+        The Sample URL looks like - https://restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=2278&deploy=1
+      parameters:
+        - name: Request Type
+          in: query
+          description: like GET
+          required: true
+          schema:
+            type: string
+
+        - name: Request Data
+          in: query
+          description: like Resource Allocation
+          required: true
+          schema:
+            type: string
+        - name: Request Account
+          in: query
+          description: like Income
+          required: true
+          schema:
+            type: string
+        - name: Start Date
+          in: query
+          description: MM/DD/YYYY format 
+          required: true
+          schema:
+            type: string
+        - name: End Date
+          in: query
+          description: MM/DD/YYYY format
+          required: true
+          schema:
+            type: string
+
+
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+        '400':
+          description: Invalid request parameters
+        '404':
+          description: Expense not found
+
+
+  /PoleStar Payment Api(2279):
+    get:
+      tags:
+        - BI
+      summary: Customer Payment Details to PoleStar 
+      description: |
+        Sending Customer payment details to PoleStar
+        The Sample URL looks like - https://restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=2279&deploy=1
+      parameters:
+        - name: Request Type
+          in: query
+          description: like GET
+          required: true
+          schema:
+            type: string
+
+        - name: Request Data
+          in: query
+          description: like Resource Allocation
+          required: true
+          schema:
+            type: string
+        - name: Start Date
+          in: query
+          description: MM/DD/YYYY format 
+          required: true
+          schema:
+            type: string
+        - name: End Date
+          in: query
+          description: MM/DD/YYYY format
+          required: true
+          schema:
+            type: string
+
+
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+        '400':
+          description: Invalid request parameters
+        '404':
+          description: Expense not found
+
+
+  /PoleStar Bill Api(2280):
+    get:
+      tags:
+        - BI
+      summary: Vendor Bill Details to PoleStar 
+      description: |
+        API to Send Vendor Bill details to PoleStar
+        The Sample URL looks like - https://restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=2280&deploy=1
+      parameters:
+        - name: Request Type
+          in: query
+          description: like GET
+          required: true
+          schema:
+            type: string
+
+        - name: Request Data
+          in: query
+          description: like Resource Allocation
+          required: true
+          schema:
+            type: string
+        - name: Start Date
+          in: query
+          description: MM/DD/YYYY format 
+          required: true
+          schema:
+            type: string
+        - name: End Date
+          in: query
+          description: MM/DD/YYYY format
+          required: true
+          schema:
+            type: string
+
+
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/2280_Response'
+        '400':
+          description: Invalid request parameters
+        '404':
+          description: Expense not found
+
+  /PoleStar Bill Api(2281):
+    get:
+      tags:
+        - BI
+      summary: Deposit Details to PoleStar 
+      description: |
+        Sending deposite details to PoleStar
+        The Sample URL looks like - https://restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=2281&deploy=1
+      parameters:
+        - name: Request Type
+          in: query
+          description: like GET
+          required: true
+          schema:
+            type: string
+
+        - name: Request Data
+          in: query
+          description: like Resource Allocation
+          required: true
+          schema:
+            type: string
+        - name: Start Date
+          in: query
+          description: MM/DD/YYYY format 
+          required: true
+          schema:
+            type: string
+        - name: End Date
+          in: query
+          description: MM/DD/YYYY format
+          required: true
+          schema:
+            type: string
+
+
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+        '400':
+          description: Invalid request parameters
+        '404':
+          description: Expense not found
+
+  /PoleStar Vendor Credit Api(2282):
+    get:
+      tags:
+        - BI
+      summary: Vendor Credit Details to PoleStar 
+      description: |
+        Sending vendor credit records for a date range to PoleStar
+        The Sample URL looks like - https://restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=2281&deploy=1
+      parameters:
+        - name: Request Type
+          in: query
+          description: like GET
+          required: true
+          schema:
+            type: string
+
+        - name: Request Data
+          in: query
+          description: like Resource Allocation
+          required: true
+          schema:
+            type: string
+        - name: Start Date
+          in: query
+          description: MM/DD/YYYY format 
+          required: true
+          schema:
+            type: string
+        - name: End Date
+          in: query
+          description: MM/DD/YYYY format
+          required: true
+          schema:
+            type: string
+
+
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+        '400':
+          description: Invalid request parameters
+        '404':
+          description: Expense not found
+          
+  /PoleStar Vendor Payment Api(2283):
+    get:
+      tags:
+        - BI
+      summary: Vendor Payments Details to PoleStar 
+      description: |
+        Sending Vendor Payment records for a date range to PoleStar
+        The Sample URL looks like - https://restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=2283&deploy=1
+      parameters:
+        - name: Request Type
+          in: query
+          description: like GET
+          required: true
+          schema:
+            type: string
+
+        - name: Request Data
+          in: query
+          description: like Resource Allocation
+          required: true
+          schema:
+            type: string
+        - name: Start Date
+          in: query
+          description: MM/DD/YYYY format 
+          required: true
+          schema:
+            type: string
+        - name: End Date
+          in: query
+          description: MM/DD/YYYY format
+          required: true
+          schema:
+            type: string
+
+
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+        '400':
+          description: Invalid request parameters
+        '404':
+          description: Expense not found
+
+  /PoleStar Expense Report Api(2285):
+    get:
+      tags:
+        - BI
+      summary: Vendor Payments Details to PoleStar 
+      description: |
+        Sending Expense Reports details to PoleStar
+        The Sample URL looks like - https://restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=2285&deploy=1
+      parameters:
+        - name: Request Type
+          in: query
+          description: like GET
+          required: true
+          schema:
+            type: string
+
+        - name: Request Data
+          in: query
+          description: like Resource Allocation
+          required: true
+          schema:
+            type: string
+        - name: Start Date
+          in: query
+          description: MM/DD/YYYY format 
+          required: true
+          schema:
+            type: string
+        - name: End Date
+          in: query
+          description: MM/DD/YYYY format
+          required: true
+          schema:
+            type: string
+
+
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+        '400':
+          description: Invalid request parameters
+        '404':
+          description: Expense not found
+
+  /PoleStar Currency Valuation Api(2286):
+    get:
+      tags:
+        - BI
+      summary: Currency Details to PoleStar 
+      description: |
+        Sending Currency Valuation details to PoleStar
+        The Sample URL looks like - https://restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=2286&deploy=1
+      parameters:
+        - name: Request Type
+          in: query
+          description: like GET
+          required: true
+          schema:
+            type: string
+
+        - name: Request Data
+          in: query
+          description: like Resource Allocation
+          required: true
+          schema:
+            type: string
+        - name: Start Date
+          in: query
+          description: MM/DD/YYYY format 
+          required: true
+          schema:
+            type: string
+        - name: End Date
+          in: query
+          description: MM/DD/YYYY format
+          required: true
+          schema:
+            type: string
+
+
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Response'
+        '400':
+          description: Invalid request parameters
+        '404':
+          description: Expense not found
+
+  /REST Vertical Api(2484):
+    get:
+      tags:
+        - FUEL
+      summary: Currency Details to PoleStar 
+      description: |
+        Sends active and inactive vertical,micro vertical,investor vertical,verticalmaster details.
+        The Sample URL looks like - https://restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=2484&deploy=1
+      parameters:
+        - name: Request Type
+          in: query
+          description: like GET
+          required: true
+          schema:
+            type: string
+
+        - name: Request Data
+          in: query
+          description: like Resource Allocation
+          required: true
+          schema:
+            type: string
+        # - name: Start Date
+        #   in: query
+        #   description: MM/DD/YYYY format 
+        #   required: true
+        #   schema:
+        #     type: string
+        # - name: End Date
+        #   in: query
+        #   description: MM/DD/YYYY format
+        #   required: true
+        #   schema:
+            # type: string
+
+
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/2484_Response'
+        '400':
+          description: Invalid request parameters
+        '404':
+          description: Expense not found
+
+  /REST Employee Data OTG_V2.0(2864):
+    get:
+      tags:
+        - On The Go
+      summary: Employee Details 
+      description: |
+        Send the Employee Details
+        The Sample URL looks like - https://restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=2864&deploy=1
+      parameters:
+        - name: Request Type
+          in: query
+          description: like GET
+          required: true
+          schema:
+            type: string
+        - name: Date and Time 
+          in: query
+          description: Format DATETIMEETZ 
+          required: true
+          schema:
+            type: string
+        # - name: End Date
+        #   in: query
+        #   description: MM/DD/YYYY format
+        #   required: true
+        #   schema:
+            # type: string
+
+
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/2864_Response'
+        '400':
+          description: Invalid request parameters
+        '404':
+          description: Expense not found
+          
+  /REST_OTG_Employee_Data_V2.0(2871):
+    get:
+      tags:
+        - On The Go
+      summary: Fetch Employee Details 
+      description: |
+        RESTlet Script to retrive Employee details using Employee ID
+        The Sample URL looks like - https://restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=2871&deploy=1
+      parameters:
+        - name: Request Type
+          in: query
+          description: like GET
+          required: true
+          schema:
+            type: string
+        - name: Employee ID 
+          in: query
+          description: integer
+          required: true
+          schema:
+            type: string
+        # - name: End Date
+        #   in: query
+        #   description: MM/DD/YYYY format
+        #   required: true
+        #   schema:
+            # type: string
+
+
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/2871_Response'
+        '400':
+          description: Invalid request parameters
+        '404':
+          description: Expense not found
+          
+  /REST_OTG_EmployeeData_V2.0(2636):
+    get:
+      tags:
+        - On The Go
+      summary: Employee Details 
+      description: |
+        Returns all the active Employee Details 
+        The Sample URL looks like - https://restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=2636&deploy=1
+      parameters:
+        - name: Request Type
+          in: query
+          description: like GET
+          required: true
+          schema:
+            type: string
+        - name: Date and Time 
+          in: query
+          description: Format DATETIMEETZ 
+          required: true
+          schema:
+            type: string
+
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/2636_Response'
+        '400':
+          description: Invalid request parameters
+        '404':
+          description: Expense not found
+
+  /PoleStar Currency Exchange Rate Api(2269):
+    get:
+      tags:
+        - BI
+      summary: Currency Details to PoleStar
+      description: |
+        Sending Currency Exchange Rate details to PoleStar
+        The Sample URL looks like - https://restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=2269&deploy=1
+      parameters:
+        - name: Request Type
+          in: query
+          description: like GET
+          required: true
+          schema:
+            type: string
+        - name: RequestData 
+          in: query
+          description: like CURRENCYEXCHANGE
+          required: true
+          schema:
+            type: string
+        - name: RequestParameter 
+          in: query
+          description: like YEARLY
+          required: true
+          schema:
+            type: string
+
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/2269_Response'
+        '400':
+          description: Invalid request parameters
+        '404':
+          description: Expense not found
+
+  /PoleStar Mobile Holiday Api(2274):
+    get:
+      tags:
+        - BI
+      summary: Holiday Details to PoleStar
+      description: |
+        Sending Mobile Holiday Calender custom record details to PoleStar
+        The Sample URL looks like - https://restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=2274&deploy=1
+      parameters:
+        - name: Request Type
+          in: query
+          description: like GET
+          required: true
+          schema:
+            type: string
+        - name: RequestData 
+          in: query
+          description: like CURRENCYEXCHANGE
+          required: true
+          schema:
+            type: string
+        - name: RequestDate
+          in: query
+          description: Format MM/DD/YYYY
+          required: true
+          schema:
+            type: string
+
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/2274_Response'
+        '400':
+          description: Invalid request parameters
+        '404':
+          description: Expense not found
+
+  /PoleStar Mobile Holiday Api(2580):
+    get:
+      tags:
+        - BI
+      summary: Holiday Details to PoleStar
+      description: |
+        API to send BI access record details 
+        The Sample URL looks like - https://restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=2580&deploy=1
+      parameters:
+        - name: Request Type
+          in: query
+          description: like GET
+          required: true
+          schema:
+            type: string
+        - name: RequestData 
+          in: query
+          description: like CURRENCYEXCHANGE
+          required: true
+          schema:
+            type: string
+        - name: RequestDate
+          in: query
+          description: Format MM/DD/YYYY
+          required: true
+          schema:
+            type: string
+
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/2580_Response'
+        '400':
+          description: Invalid request parameters
+        '404':
+          description: Expense not found
+
+  /REST_OTG_TS_Approve_Reject_V2.0(2528):
+    get:
+      tags:
+        - On The Go
+      summary: Approve/Reject Timesheet
+      description: |
+        This script will approve or reject the timesheet (OTG not calling pending timesheet details request(2643-SB)
+        The Sample URL looks like - https://restlets.api.netsuite.com/app/site/hosting/restlet.nl?script=2580&deploy=1
+      parameters:
+        - name: Request Type
+          in: query
+          description: like GET, APPROVE, REJECT
+          required: true
+          schema:
+            type: string
+        - name: Employee ID 
+          in: query
+          description: Enter the 6 digit number
+          required: true
+          schema:
+            type: integer
+        - name: Data
+          in : query
+          description: timeSheet id
+          required: true
+          schema:
+            type: object
+            properties:
+              TimeSheetId:
+                type: string
+                format: integer
+                description: enter the id
+
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/2528_Response_1'
+                  - $ref: '#/components/schemas/2528_Response_2'
+                  - $ref: '#/components/schemas/2528_Response_3'
+        '400':
+          description: Invalid request parameters
+        '404':
+          description: Expense not found
+
+
+components:
+  schemas:
+    ProjectAllocationRequest:
+      type: object
+      properties:
+        customer:
+          type: object
+          properties:
+            Name:
+              type: string
+            Internal_id:
+              type: string
+        companyname:
+          type: string
+        projecttype:
+          type: string
+        project_allocation_category:
+          type: string
+        entitystatus:
+          type: string
+        Maker:
+          type: object
+          properties:
+            Name:
+              type: string
+            Internal_id:
+              type: string
+        projectmanager:
+          type: object
+          properties:
+            Name:
+              type: string
+            Internal_id:
+              type: string
+        deliverymanager:
+          type: object
+          properties:
+            Name:
+              type: string
+            Internal_id:
+              type: string
+        startdate:
+          type: string
+          format: date
+        enddate:
+          type: string
+          format: date
+        project_head_count:
+          type: integer
+        subsidiary:
+          type: object
+          properties:
+            Name:
+              type: string
+            Internal_id:
+              type: string
+        region:
+          type: string
+        practice:
+          type: object
+          properties:
+            Name:
+              type: string
+            Internal_id:
+              type: string
+        project_currency:
+          type: object
+          properties:
+            Name:
+              type: string
+            Internal_id:
+              type: string
+        project_holiday:
+          type: string
+        jobbillingtype:
+          type: object
+          properties:
+            Name:
+              type: string
+            Internal_id:
+              type: string
+        discountApplicable:
+          type: boolean
+        client_partner:
+          type: object
+          properties:
+            Name:
+              type: string
+            Internal_id:
+              type: string
+        vertical:
+          type: object
+          properties:
+            Name:
+              type: string
+            Internal_id:
+              type: string
+        vertical_head:
+          type: object
+          properties:
+            Name:
+              type: string
+            Internal_id:
+              type: string
+        Regional_Revenue_Officer:
+          type: object
+          properties:
+            Name:
+              type: string
+            Internal_id:
+              type: string
+        Delivery_Partner:
+          type: object
+          properties:
+            Name:
+              type: string
+            Internal_id:
+              type: string
+        projectvalue:
+          type: string
+        sold_margin_percent:
+          type: string
+        sold_customer_margin_percent:
+          type: string
+        fp_rev_rec_type:
+          type: object
+          properties:
+            Name:
+              type: string
+            Internal_id:
+              type: string
+        lineMilestone:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              expectedDate:
+                type: string
+                format: date
+              invoiceAmount:
+                type: string
+              type:
+                type: string
+              fuelId:
+                type: string
+              id:
+                type: string
+        opportunityId:
+          type: string
+        subPractice:
+          type: object
+          properties:
+            Name:
+              type: string
+            Internal_id:
+              type: string
+        projectInternalId:
+          type: string
+        timesheet:
+          type: array
+          items:
+            type: object
+        files:
+          type: array
+          items:
+            type: object
+            properties:
+              document_type:
+                type: string
+              link:
+                type: string
+              version:
+                type: string
+              Isdeleted:
+                type: boolean
+        IsDraftSOW:
+          type: boolean
+        PricingSheet:
+          type: string
+        SOW:
+          type: string
+        RRO_Approval:
+          type: string
+
+    ProjectAllocationRequest_1:
+      type: object
+      properties:
+        Data:
+          type: array
+          items:
+            type: object
+            properties:
+              Market_Vertical:
+                type: string
+              Market_Sub_Vertical:
+                type: string
+              Market_Micro_Vertical:
+                type: string
+              Investor_Vertical:
+                type: string
+              Delivery_Sub_Vertical:
+                type: string
+              Category:
+                type: string
+              AccountID:
+                type: string
+              Account_Region:
+                type: string
+              Account_Owner_Email:
+                type: string
+              Account_Name:
+                type: string
+          required:
+            - RequestType
+            - Data
+
+    1791:
+      type: object
+      properties:
+        Date:
+          type: string
+          pattern: "^(0?[1-9]|[12][0-9]|3[01])$"
+        Month:
+          type: string
+          pattern: "^(0?[1-9]|1[0-2])$"
+        Year:
+          type: string
+          pattern: "^[0-9]{4}$"
+      required:
+        - RequestType
+        - Date
+        - Month
+        - Year
+        
+    1232:
+      type: object
+      properties:
+        EmailId:
+          type: string
+      required:
+        - EmailId
+
+
+    1232_Response:
+      type: object
+      properties:
+        count:
+          type: object
+          properties:
+            newJoineeCount:
+              type: integer
+            pendingTimesheetCount:
+              type: integer
+            rejectedTimesheetCount:
+              type: integer
+            rejectedExpenseCount:
+              type: integer
+            timesheetApprovalCount:
+              type: integer
+            expenseApprovalCount:
+              type: integer
+            travelApprovalCount:
+              type: integer
+            prApprovalCount:
+              type: integer
+        approver:
+          type: object
+          properties:
+            isTimeSheetApprover:
+              type: boolean
+            isExpenseApprover:
+              type: boolean
+            isTravelApprover:
+              type: boolean
+            isPRApprover:
+              type: boolean
+          required:
+            - isTimeSheetApprover
+            - isExpenseApprover
+            - isTravelApprover
+            - isPRApprover
+      required:
+        - count
+        - approver
+
+    1791_Response:
+      type: object
+      properties:
+        Status:
+          type: boolean
+        Data:
+          type: object
+          properties:
+            Revenue:
+              type: array
+              items: {}  # You may add additional properties specific to the items if needed
+            Discount:
+              type: array
+              items: {}  # You may add additional properties specific to the items if needed
+          required:
+            - Revenue
+            - Discount
+      required:
+        - Status
+        - Data
+
+    ProjectAllocationResponse201:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 201
+        Message:
+          type: string
+          example: Record has been created successfully
+        internal_id:
+          type: integer
+          example: 123
+        Project_Id:
+          type: string
+          example: ABCD
+
+    ProjectAllocationResponse201_1:
+      type: object
+      properties:
+        Data:
+          type: object
+          properties:
+            status:
+              type: string
+            message:
+              type: string
+            internal_id:
+              type: integer
+            Project_Id:
+              type: string
+          required:
+            - status
+            - message
+            - internal_id
+            - Project_Id
+
+    AccountCreationResponse:
+      type: object
+      properties:
+        Data:
+          type: array
+          items:
+            type: object
+            properties:
+              status:
+                type: string
+              message:
+                type: string
+              internal_id:
+                type: integer
+            required:
+              - status
+              - message
+              - internal_id
+              
+    1643_Response:
+        type: object
+        properties:
+          status:
+            type: string
+              
+    2008_Response:
+      type: object
+      properties:
+        Status:
+          type: boolean
+        Data:
+          type: object
+          properties:
+            Body:
+              type: array
+              items:
+                type: object
+                properties:
+                  Employee:
+                    type: string
+                  ExpID:
+                    type: string
+                  Approver:
+                    type: string
+                  Subsidiary:
+                    type: string
+                  Status:
+                    type: string
+                  Purpose:
+                    type: string
+                  TotalAmt:
+                    type: string
+                  InternalId:
+                    type: string
+            Line:
+              type: array
+              items:
+                type: object
+                properties:
+                  RefNo:
+                    type: string
+                  Category:
+                    type: string
+                  Currency:
+                    type: string
+                  Memo:
+                    type: string
+                  Billable:
+                  
+                    type: boolean
+                  Date:
+                    type: string
+                    format: date
+                  Amount:
+                    type: string
+                  Project:
+                    type: string
+                  Project_Display:
+                    type: string
+                  imgData:
+                    type: string
+
+          
+    1891_Response:
+      type: object
+      properties:
+        code:
+          type: integer
+          example: 201
+        Message:
+          type: string
+          example: Record has been created successfully
+        internal_id:
+          type: integer
+          example: 123
+        Project_Id:
+          type: string
+          example: ABCD
+          
+          
+          
+    2020_Response:
+      type: object
+      properties:
+        Status:
+          type: boolean
+        Data:
+          type: array
+          items: {}
+      required:
+        - Status
+        - Data
+        
+    2018_Response:
+      type: object
+      properties:
+                  
+        Status: 
+          type: boolean
+        Data: 
+          type: array
+          items: 
+            type: object
+            properties: 
+              TimeSheetDetails: 
+                type: array
+                items: 
+                  type: object
+                  properties: 
+                    Body: 
+                      type: array
+                      items: 
+                        type: object
+                        properties: 
+                          TimeSheetID: 
+                            type: string
+                          Employee: 
+                            type: string
+                          timesheetApprover: 
+                            type: string
+                          HireDate: 
+                            type: string
+                          TSApprover: 
+                            type: string
+                          WeekStartDate: 
+                            type: string
+                          WeekEndDate: 
+                            type: string
+                          TotalHours: 
+                            type: string
+                          Status: 
+                            type: string
+                          TimeSheetBlock: 
+                            type: boolean
+                          TaskHoliday: 
+                            type: string
+                          TaskLeave: 
+                            type: string
+                          TaskOT: 
+                            type: string
+                          ServiceItemHoliday: 
+                            type: string
+                          ServiceItemLeave: 
+                            type: string
+                          ServiceItemOT: 
+                            type: string
+                          DayLimit: 
+                            type: integer
+                          WeekLimit: 
+                            type: integer
+                    Lines: 
+                      type: array
+                      items: 
+                        type: object
+                        properties: 
+                          ServiceItem: 
+                            type: array
+                            items: 
+                              type: object
+                              properties: 
+                                Task: 
+                                  type: string
+                                Date: 
+                                  type: string
+                                  format: date
+                                Days: 
+                                  type: string
+                                DayNo: 
+                                  type: integer
+                                Projects: 
+                                  type: array
+                                  items: 
+                                    type: object
+                                    properties: 
+                                      Date: 
+                                        type: string
+                                        format: date
+                                      Project: 
+                                        type: string
+                                      Task: 
+                                        type: string
+                                      ServiceItem: 
+                                        type: string
+                                      Hrs: 
+                                        type: string
+                                      DayLimit: 
+                                        type: string
+                                      WeekLimit: 
+                                        type: string
+                                      TaskPro: 
+                                        type: string
+                                      ServiceItemPro: 
+                                        type: string
+                                      HolidayCheck: 
+                                        type: boolean
+                                      LeaveCheck: 
+                                        type: boolean
+                                      OTHrs: 
+                                        type: integer
+                                      Days: 
+                                        type: string
+                                      isOtEligible: 
+                                        type: boolean
+                                      CustomerName: 
+                                        type: string
+       
+    2007_Response:
+      type: object
+      properties:
+        Status:
+          type: boolean
+        
+        
+    2013_Response:    
+      type: object
+      properties:
+        InternalId:
+          type: string
+        EmployeeName:
+          type: string
+        Purpose:
+          type: string
+        TravelId:
+          type: string
+        DepartureDate:
+          type: string  
+          format: date
+        Type:
+          type: string
+        Project:
+          type: string
+        Checked:
+          type: boolean
+          
+          
+    2021_Response:      
+      # Data:
+        type: array
+        items:
+          type: object
+          properties:
+            CurrentDate:
+              type: string
+              format: date
+            ProjectManagerFlag:
+              type: boolean
+            ReportingManager:
+              type: boolean
+            RequestJSON:
+              type: array
+              items:
+                type: object
+                properties:
+                  PeerBirthday:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        Value:
+                          type: integer
+                        Date:
+                          type: string
+                          format: date
+                        Month:
+                          type: string
+                        BirthDate:
+                          type: integer
+                          format: date
+                        Email:
+                          type: string
+                        Name:
+                          type: string
+                        Phone:
+                          type: string
+                        IN:
+                          type: string
+                        ImageURL:
+                          type: string
+        required:
+          - CurrentDate
+          - ProjectManagerFlag
+          - ReportingManager
+          - RequestJSON
+            
+            
+            
+    2083_Response:
+      type: object
+      properties:
+        CurrentDate:
+          type: string
+          format: date
+        ProjectManagerFlag:
+          type: boolean
+        ReportingManager:
+          type: boolean
+        RequestJSON:
+          type: array
+          items:
+            type: object
+            properties:
+              HolidayList:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    Holiday_Desc:
+                      type: string
+                    Holiday_Date:
+                      type: integer
+                      format: date
+                    IN:
+                      type: string
+                    Holiday_Month:
+                      type: string
+                    Holiday_Year:
+                      type: integer
+                    HolidayDate:
+                      type: string
+                      format: date
+      required:
+        - CurrentDate
+        - ProjectManagerFlag
+        - ReportingManager
+        - RequestJSON       
+     
+    2444:
+    # Request:
+      type: object
+      properties:
+        type:
+          type: string
+        requestId:
+          type: integer  # Assuming requestId can be null, adjust as needed
+        employee:
+          type: object
+          properties:
+            Name:
+              type: string
+            Internal_id:
+              type: integer
+        EmployeePractice:
+          type: object
+          properties:
+            Name:
+              type: string
+            Internal_id:
+              type: integer
+        workLocationType:
+          type: object
+          properties:
+            Name:
+              type: string
+            Internal_id:
+              type: string
+        Shift_Info:
+          type: object
+          properties:
+            Name:
+              type: string
+            Internal_id:
+              type: string
+        Bill_Option:
+          type: object
+          properties:
+            Name:
+              type: string
+            Internal_id:
+              type: string
+        Start_Date:
+          type: string
+          format: date # You may choose a more specific type if the date format is known
+        End_Date:
+          type: string
+          format: date # You may choose a more specific type if the date format is known
+        AllocationPercent:
+          type: integer
+        ProjectName:
+          type: object
+          properties:
+            Name:
+              type: string
+            Internal_id:
+              type: integer
+        ResourceWorkLocation:
+          type: object
+          properties:
+            Name:
+              type: string
+            Internal_id:
+              type: string
+        BillRate:
+          type: integer  # Assuming BillRate can be null, adjust as needed
+        OTRate:
+          type: integer
+        effectivedate:
+          type: string
+          format: date # You may choose a more specific type if the date format is known
+        FRF:
+          type: string
+        remarks:
+          type: string
+        requestor:
+          type: object
+          properties:
+            id:
+              type: integer
+            name:
+              type: string
+      required:
+        - type
+        - employee
+        - EmployeePractice
+        - workLocationType
+        - Shift_Info
+        - Bill_Option
+        - Start_Date
+        - End_Date
+        - AllocationPercent
+        - ProjectName
+        - ResourceWorkLocation
+        - OTRate
+        - effectivedate
+        - FRF
+        - remarks
+        - requestor
+     
+     
+    2444_Response:
+      type: object
+      properties:
+        Internal ID:
+          type: integer
+        Record Name:
+          type: string
+      required:
+        - EmailId
+    
+    2445:
+      type: object
+      properties:
+        EditAllocationId:
+          type: integer
+        userEmail:
+          type: string
+        remark:
+          type: string
+      required:
+        - EditAllocationId
+        - userEmail
+        - remark
+
+      
+    2445_Response:
+      type: object 
+      properties :
+        Message :
+          type: string
+          
+          
+    2446:
+      type: object 
+      properties:
+        ExtensionId:
+          type: integer
+        userEmail:
+          type: string
+        remark:
+          type: string
+    # required:
+    #   # - ExtensionId
+    #   - userEmail
+    #   - remark        
+    
+    2446_Response:
+      type: object
+      properties:
+        Message:
+          type: string
+          
+          
+          
+    2447:
+      type: object
+      properties:
+        Request ID:
+          type: integer 
+        User Mail ID:
+          type : string
+          
+    2447_Response:
+      type : object 
+      properties:
+        Message:
+          type: string
+          
+          
+    2449:
+      type: object
+      properties:
+        recordType:
+          type: string
+        accountInternalId:
+          type: string  # Adjust the type based on the actual data type
+        deliveryPartner:
+          type: object
+          properties:
+            Name:
+              type: string
+            Internal_id:
+              type: integer
+      required:
+        - recordType
+        - accountInternalId
+        - deliveryPartner
+        
+        
+        
+    2449_Response:
+      type: object 
+      properties:
+        Message:
+          type : string
+          
+          
+          
+    2450:
+      # data:
+      type: object
+      properties:
+        type:
+          type: string
+        subtype:
+          type: string
+        raisedfromBillable:
+          type: boolean
+        nsInternalId:
+          type: integer  # Assuming nsInternalId can be null, adjust as needed
+        employee:
+          type: object
+          properties:
+            Name:
+              type: string
+            InternalId:
+              type: string  # Adjust the type based on the actual data type
+        EmployeePractice:
+          type: object
+          properties:
+            Name:
+              type: string
+            Internal_id:
+              type: string  # Adjust the type based on the actual data type
+        Start_Date:
+          type: string
+          format: date # You may choose a more specific type if the date format is known
+        End_Date:
+          type: string 
+          format: date # You may choose a more specific type if the date format is known
+        AllocationPercent:
+          type: string  # Adjust the type based on the actual data type
+        ProjectName:
+          type: string  # Assuming ProjectName can be null, adjust as needed
+        ResourceWorkLocation:
+          type: object
+          properties:
+            Name:
+              type: string
+            internal_id:
+              type: string  # Adjust the type based on the actual data type
+        Remark:
+          type: string
+        requestor:
+          type: object
+          properties:
+            name:
+              type: string
+            id:
+              type: string  # Adjust the type based on the actual data type
+        requestId:
+          type: integer  # Assuming requestId can be null, adjust as needed
+        account:
+          type: object
+          properties:
+            name:
+              type: string
+            id:
+              type: string  # Adjust the type based on the actual data type
+      required:
+        - type
+        - subtype
+        - raisedfromBillable
+        - employee
+        - EmployeePractice
+        - Start_Date
+        - End_Date
+        - AllocationPercent
+        - ResourceWorkLocation
+        - Remark
+        - requestor
+        - account
+        
+    2450_Response:
+      type: object 
+      properties:
+        Data:
+          type: array 
+          items: {}
+          
+          
+    2451:
+      # data:
+        type: object
+        properties:
+          type:
+            type: string
+          subtype:
+            type: string
+          employee:
+            type: object
+            properties:
+              Name:
+                type: string
+              InternalId:
+                type: integer
+          EmployeePractice:
+            type: object
+            properties:
+              Name:
+                type: string
+              Internal_id:
+                type: integer
+          Client_BGC_Check_required:
+            type: boolean
+          hjgcjcj_ cj:
+            type: string # Assuming hjgcjcj_ cj can be null, adjust as needed
+          AllocationType:
+            type: string  # Assuming AllocationType can be null, adjust as needed
+          workLocationType:
+            type: object
+            properties:
+              Name:
+                type: string
+              internal_id:
+                type: integer
+          ShiftInfo:
+            type: object
+            properties:
+              Name:
+                type: string
+              Internal_id:
+                type: integer
+          Bill_Option:
+            type: object
+            properties:
+              Name:
+                type: string
+              internal_id:
+                type: integer
+          Start_Date:
+            type: string  # You may choose a more specific type if the date format is known
+            format: date
+          End_Date:
+            type: string  # You may choose a more specific type if the date format is known
+            format: date
+          AllocationPercent:
+            type: integer
+          ProjectName:
+            type: object
+            properties:
+              Name:
+                type: string
+              internal_id:
+                type: integer
+          SoftLockDate:
+            type: string  # You may choose a more specific type if the date format is known
+          ResourceWorkLocation:
+            type: object
+            properties:
+              Name:
+                type: string
+              internal_id:
+                type: integer
+          BillRate:
+            type: string  # Adjust the type based on the actual data type
+          OTRate:
+            type: string  # Assuming OTRate can be null, adjust as needed
+          BillingStartDate:
+            type: string  # You may choose a more specific type if the date format is known
+            format: date
+          BillingEndDate:
+            type: string  # You may choose a more specific type if the date format is known
+            format: date
+          Remark:
+            type: string
+          FRF:
+            type: string
+          requestor:
+            type: object
+            properties:
+              name:
+                type: string
+              id:
+                type: integer
+          requestId:
+            type: integer
+          hiringManager:
+            type: object
+            properties:
+              name:
+                type: string
+              internal_id:
+                type: integer
+        required:
+          - type
+          - subtype
+          - employee
+          - EmployeePractice
+          - Client_BGC_Check_required
+          - workLocationType
+          - ShiftInfo
+          - Bill_Option
+          - Start_Date
+          - End_Date
+          - AllocationPercent
+          - ProjectName
+          - SoftLockDate
+          - ResourceWorkLocation
+          - BillRate
+          - OTRate
+          - BillingStartDate
+          - BillingEndDate
+          - Remark
+          - FRF
+          - requestor
+          - requestId
+          - hiringManager
+          
+          
+    2451_Response:
+      type : object 
+      properties:
+        Message: 
+          type: string
+        internalid:
+          type: integer
+        Allocation Id:
+          type: string
+              
+              
+    2452:
+        # data:
+      type: object
+      properties:
+        formId:
+          type: string  # Adjust the type based on the actual data type
+        formtype:
+          type: string
+        opportunityId:
+          type: string
+        OpportunityName:
+          type: string
+        tcv:
+          type: string  # Adjust the type based on the actual data type
+        soldMargin:
+          type: integer
+        projectStartDate:
+          type: string  # You may choose a more specific type if the date format is known
+          format: date
+        projectEndDate:
+          type: string  # You may choose a more specific type if the date format is known
+          format: date
+        remarks:
+          type: string
+        IsNoDoc:
+          type: boolean
+        IsDraftSOW:
+          type: boolean
+        billingType:
+          type: object
+          properties:
+            internalId:
+              type: string
+            name:
+              type: string
+        milestoneSchedule:
+          type: array
+          items:
+            type: object
+            properties:
+              milestoneName:
+                type: string
+              expectedDate:
+                type: string  # You may choose a more specific type if the date format is known
+              invoiceAmount:
+                type: integer
+              isDeleted:
+                type: boolean
+              id:
+                type: integer
+              fuelId:
+                type: string
+              type:
+                type: string
+        requestor:
+          type: object
+          properties:
+            name:
+              type: string
+            internalID:
+              type: integer
+        project:
+          type: object
+          properties:
+            name:
+              type: string
+            id:
+              type: integer
+        files:
+          type: array
+          items:
+            type: object
+            properties:
+              document_type:
+                type: string
+              link:
+                type: string
+              version:
+                type: integer
+              Isdeleted:
+                type: boolean
+              fileExtension:
+                type: string
+        projectionStatus:
+          type: string
+        opportunityStage:
+          type: string
+      required:
+        - formId
+        - formtype
+        - opportunityId
+        - OpportunityName
+        - tcv
+        - soldMargin
+        - projectStartDate
+        - projectEndDate
+        - remarks
+        - IsNoDoc
+        - IsDraftSOW
+        - billingType
+        - milestoneSchedule
+        - requestor
+        - project
+        - files
+        - projectionStatus
+        - opportunityStage
+        
+    2452_Response:
+      type : object 
+      properties:
+        message:
+          type : string
+        internal_id:
+          type: integer 
+        caseNumber:
+          type: string
+        Request_Id:
+          type: string
+        mileStone:
+          type: object 
+          properties:
+            status:
+              type: string
+            error:
+              type: string
+            fuelId:
+              type: string
+            id:
+              type: integer
+           
+          
+    2453:
+      type: object 
+      properties:
+        nsFormId:
+          type: integer
+        userEmail:
+          type: string
+        remark:
+          type: string 
+        
+              
+    2453_Response:
+      type: object 
+      properties:
+        message: 
+          type: string
+     
+     
+    2454:
+      type: object
+      properties:
+        requestId:
+          type: string
+        employee:
+          type: object
+          properties:
+            id: 
+              type: integer 
+            name :
+              type: string
+        project:
+          type: object
+          properties:
+            id:
+              type: integer
+            name: 
+              type: string
+        practice:
+          type: object
+          properties:
+            id: 
+              type: integer
+            name: 
+              type: string
+        allocationId:
+          type: integer
+        allocationPercent:
+          type: integer
+        projectEndDate:
+          type: string
+          format: date
+        allocationEnddate: 
+          type: string
+          format: date
+        effectiveDateOfChange:
+          type: string
+          format: date
+        NewAllocationPercent: 
+          type:  integer
+          
+        remarks: 
+          type: string
+        requestDate:
+          type: string
+          format: date
+        employeeLocation:
+          type: object
+          properties:
+            id:
+              type: integer
+            name:
+              type: string
+        employeeType:
+          type: object
+          properties:
+            id:
+              type: integer
+            name: 
+              type: string    
+         
+    2454_Response:
+      type: object
+      properties:
+        internal_id:
+          type: string
+        RequestId:
+          type: string
+        message:
+          type: string 
+          
+              
+    2455:
+      type: object
+      properties:
+        requestId:
+          type: string
+        employee:
+          type: object
+          properties:
+            id:
+              type: string
+            name:
+              type: string
+        allocationId:
+          type: integer
+        allocationPercent:
+          type: integer
+        project:
+          type: object
+          properties:
+            name:
+              type: string
+            id:
+              type: string
+        practice:
+          type: object
+          properties:
+            name:
+              type: integer
+            id:
+              type: string
+        projectEndDate:
+          type: string
+          format: date
+        allocationEndDate:
+          type: string
+          format: date
+        projectedReleaseDate:
+          type: string
+          format: date
+        desiredReleaseDate:
+          type: string
+          format: date
+        otherReason:
+          type: string
+        releasedReason:
+          type: object
+          properties:
+            id:
+              type: string
+            name:
+              type: string
+        requestor:
+          type: object
+          properties:
+            id:
+              type: string
+            name:
+              type: string
+        requestDate:
+          type: string
+        employeeType:
+          type: object
+          properties:
+            id:
+              type: integer
+            name:
+              type: string
+        employeeLocation:
+          type: object
+          properties:
+            id:
+              type: string
+            name:
+              type: string
+        allocationUUID:
+          type: string
+      required:
+        - requestId
+        - employee
+        - allocationId
+        - allocationPercent
+        - project
+        - practice
+        - projectEndDate
+        - allocationEndDate
+        - projectedReleaseDate
+        - desiredReleaseDate
+        - otherReason
+        - releasedReason
+        - requestor
+        - requestDate
+        - employeeType
+        - employeeLocation
+        - allocationUUID
+        
+    2455_Response:
+      type: object
+      properties:
+        data:
+          type: array
+          items :
+            type: object
+            
+            
+    2516: 
+      type: object 
+      properties:
+        Data:
+          type: object
+          properties:
+            Market_Vertical: 
+              type: string
+            Market_Sub_Vertical: 
+              type: string
+            Market_Micro_Vertical: 
+              type: string
+            Investor_Vertical: 
+              type: string
+            Delivery_Sub_Vertical: 
+              type: string
+            Category: 
+              type: string
+            AccountID: 
+              type: string
+            Account_Region: 
+              type: string
+            Account_Owner_Email: 
+              type: string
+            Account_Name: 
+              type: string
+        
+      required:
+        - Market_Vertical
+        - Market_Sub_Vertical
+        - Market_Micro_Vertical
+        - Investor_Vertical
+        - Delivery_Sub_Vertical
+        - Category
+        - AccountID
+        - Account_Region
+        - Account_Owner_Email
+        - Account_Name      
+              
+ 
+            
+    2516_Response:
+      type: object 
+      properties: 
+        Data:
+          type: array 
+          items:
+            type: object 
+            properties:
+              AccountID:
+                type: string
+              NetsuiteCustomerID:
+                type: string
+              Subsidiary:
+                type: string
+        Status:
+          type: string
+          
+    2516_Update: 
+      type: object 
+      properties:
+        Data:
+          type: object
+          properties:
+            Market_Vertical: 
+              type: string
+            Market_Sub_Vertical: 
+              type: string
+            Market_Micro_Vertical: 
+              type: string
+            Investor_Vertical: 
+              type: string
+            Delivery_Sub_Vertical: 
+              type: string
+            Category: 
+              type: string
+            AccountID: 
+              type: string
+            Account_Region: 
+              type: string
+            Account_Owner_Email: 
+              type: string
+            Account_Name: 
+              type: string
+        
+      required:
+        - Market_Vertical
+        - Market_Sub_Vertical
+        - Market_Micro_Vertical
+        - Investor_Vertical
+        - Delivery_Sub_Vertical
+        - Category
+        - AccountID
+        - Account_Region
+        - Account_Owner_Email
+        - Account_Name      
+              
+          
+    2517_Response: 
+      type: object 
+      properties: 
+        Data:
+          type: array 
+          items:
+            type: object 
+            properties:
+              SOW_ID:
+                type: string
+              OPP_ID:
+                type: string
+        Status:
+          type: string
+          
+    2532:
+      type: object
+      properties:
+        Id: 
+          type: integer
+        Key:
+          type: integer
+          
+    
+    2532_Response:
+      type: object
+      properties:
+        Status: 
+          type: string
+        Data:
+          type: object
+          
+    2261_Response:
+      type: object
+      properties:
+        Internal Id:
+          type: integer
+        Name: 
+          type: string
+      
+    2262_Response:
+      type: object 
+      properties:
+        Internal ID: 
+          type: string
+        Name :
+          type: string
+        Account_type: 
+          type: string
+          
+    2263_Response:
+      type: object
+      properties:
+        Data:
+          type: object
+          properties:
+            Internal_ID:
+              type: string
+            Customer_ID:
+              type: string
+            Project_ID:
+              type: string
+            Project_Name:
+              type: string
+            Project_Manager:
+              type: string
+            Practice:
+              type: string
+            Project_Service:
+              type: string
+            Project_Manager_ID:
+              type: string
+            Delivery_Manager_ID:
+              type: string
+            Billing_Type:
+              type: string
+            Project_Type:
+              type: string
+            Project_Allocation_Category:
+              type: string
+            Start_Date:
+              type: string
+              format: date
+            End_Date:
+              type: string
+              format: date
+            Project_Manager_Employee_ID:
+              type: string
+            Delivery_Manager_Employee_ID:
+              type: string
+            Project_region:
+              type: string
+            Project_category:
+              type: string
+            Client_Partner:
+              type: string
+            Client_Partner_Employee_ID:
+              type: string
+            Project_Status:
+              type: string
+            Project_Sold_Margin:
+              type: string
+            Customer_Sold_Margin:
+              type: string
+    
+      required:
+        - RequestType
+        - Data
+        - Internal_ID
+        - Customer_ID
+        - Project_ID
+        - Project_Name
+        - Project_Manager
+        - Practice
+        - Project_Service
+        - Project_Manager_ID
+        - Delivery_Manager_ID
+        - Billing_Type
+        - Project_Type
+        - Project_Allocation_Category
+        - Start_Date
+        - End_Date
+        - Project_Manager_Employee_ID
+        - Delivery_Manager_Employee_ID
+        - Project_region
+        - Project_category
+        - Client_Partner
+        - Client_Partner_Employee_ID
+        - Project_Status
+        - Project_Sold_Margin
+        - Customer_Sold_Margin
+        
+    2264_Response:
+      type: object 
+      properties:
+        Internal ID: 
+          type: string
+        Vendor_ID :
+          type: string
+        Name: 
+          type: string
+          
+    2265_Response:
+      type: object
+      properties:
+        Internal ID:
+          type: integer
+        Name:
+          type: string
+        Region_Head:
+          type: string
+        Region_Head_Employee_Id:
+          type: string
+          
+    2266_Response:
+      type: object
+      properties:
+        Internal ID:
+          type: integer
+        Name:
+          type: string
+        Parent_Practice:
+          type: string
+        Parent_Practice_Inetrnal_Id:
+          type: string
+        Practice_Head:
+          type: string
+        Practice_Head_Employee_Id:
+          type: string
+          
+    2267_Response:
+      type: object 
+      properties:
+        Internal ID:
+          type: string
+        Customer_ID: 
+          type: string
+        Customer_Name: 
+          type: string
+        Client_Vertical: 
+          type: string
+        Client_Category: 
+          type: string
+        Region: 
+          type: string
+        Territory: 
+          type: string
+        Account_Manager: 
+          type: string
+        Account_Manager_Employee_ID: 
+          type: string
+        Account_Delivery_owner: 
+          type: string
+        Account_Delivery_Owner_Employee_Id: 
+          type: string
+    
+      required:
+        - Customer_ID
+        - Customer_Name
+        - Client_Vertical
+        - Client_Category
+        - Region
+        - Territory
+        - Account_Manager
+        - Account_Manager_Employee_ID
+        - Account_Delivery_owner
+        - Account_Delivery_Owner_Employee_Id       
+      
+      
+    2268_Response:
+      type: object
+      properties:
+        Internal Id:
+          type: integer
+        Name: 
+          type: string
+          
+    2270_Response:
+      type: object
+      properties:
+        Internal_ID: 
+          type: string
+        Resource: 
+          type: string
+        Employee_Id: 
+          type: string
+        Employee_Name: 
+          type: string
+        Employee_Inactive: 
+          type: boolean
+        Employee_Practice: 
+          type: string
+        Employee_Subpractice: 
+          type: string
+        Employee_Parent_Practice: 
+          type: string
+        Salaried/Hourly: 
+          type: string
+        Project_ID: 
+          type: string
+        Project_Name: 
+          type: string
+        Poject_Internal_ID: 
+          type: string
+        Customer_ID: 
+          type: string
+        Customer_Name: 
+          type: string
+        Customer: 
+          type: string
+        Resource Billable: 
+          type: boolean
+        Start_Date: 
+          type: string
+          format: date
+        End_Date: 
+          type: string
+          format: date
+        Number_Of_Hours: 
+          type: string
+        Percentage_of_Time: 
+          type: string
+        Billing_Start_Date: 
+          type: string
+          format: date
+        Billing_End_Date: 
+          type: string
+          format: date
+        Bill_Rate: 
+          type: string
+        OT_Rate: 
+          type: string
+        Work Location: 
+          type: string
+        Onsite/Offsite: 
+          type: string
+        Customer_Vertical: 
+          type: string
+        Executing_Practice: 
+          type: string
+        Project_Services: 
+          type: string
+        Project_Manager: 
+          type: string
+        Delivery_Manager: 
+          type: string
+        Reporting Manager: 
+          type: string
+        Time_Approver: 
+          type: string
+        Email: 
+          type: string
+        Alt. Email: 
+          type: string
+        Billing_Type: 
+          type: string
+        Project_Type: 
+          type: string
+        ST_Pay_Rate: 
+          type: string
+        OT_Pay_Rate: 
+          type: string
+        Subsidiary: 
+          type: string
+        Person_Type: 
+          type: string
+        Employee_Type: 
+          type: string
+        Employee_Status: 
+          type: string
+        Job_Title: 
+          type: string
+        Actual_Hire_Date: 
+          type: string
+          format: date
+        Function: 
+          type: string
+        Territory: 
+          type: string
+        Project_Allocation_Category: 
+          type: string
+        Employee_Location: 
+          type: string
+        Last_Working_Date: 
+          type: string
+          format: date
+        Employment_Category: 
+          type: string
+        Project_Start_Date: 
+          type: string
+          format: date
+        Project_End_Date: 
+          type: string
+          format: date
+            
+            
+    2271_Response:
+      type: object 
+      properties:
+        Data:
+          type: object 
+          properties:
+            Internal_ID: 
+              type: string
+            Name: 
+              type: string
+            Employee_ID: 
+              type: string
+            Employee_Name: 
+              type: string
+            Middle_Name: 
+              type: string
+            Last_Name: 
+              type: string
+            Employee_Inactive: 
+              type: boolean
+            Employee_Practice: 
+              type: string
+            Employee_Parent_practice: 
+              type: string
+            Salaried_Hourly: 
+              type: string
+            Reporting_Manager: 
+              type: string
+            Time_Approver: 
+              type: string
+            Email: 
+              type: string
+            Alt_Email: 
+              type: string
+            Subsidiary: 
+              type: string
+            Person_Type: 
+              type: string
+            Employee_Type: 
+              type: string
+            Employee_Status: 
+              type: string
+            Job_Title: 
+              type: string
+            Actual_Hire_Date: 
+              type: string
+              format: date
+            Function: 
+              type: string
+            Employee_Location: 
+              type: string
+            Last_Working_Date: 
+              type: string
+              format: date
+            Employment_Category: 
+              type: string
+          
+          required:
+            - RequestType
+            - Data
+            - Internal_ID
+            - Name
+            - Employee_ID
+            - Employee_Name
+            - Middle_Name
+            - Last_Name
+            - Employee_Inactive
+            - Employee_Practice
+            - Employee_Parent_practice
+            - Salaried_Hourly
+            - Reporting_Manager
+            - Time_Approver
+            - Email
+            - Alt_Email
+            - Subsidiary
+            - Person_Type
+            - Employee_Type
+            - Employee_Status
+            - Job_Title
+            - Actual_Hire_Date
+            - Function
+            - Employee_Location
+            - Last_Working_Date
+            - Employment_Category
+            
+    2272_Response:
+      type: object
+      properties:
+        Internal Id:
+          type: integer
+        Name: 
+          type: string
+      
+    2273_Response:
+      type: object 
+      properties:
+        Data:
+          type: object 
+          properties:
+            Internal_ID: 
+              type: string
+            Project_ID: 
+              type: string
+            Project_Name: 
+              type: string
+            Customer_Name: 
+              type: string
+            Client_Partner: 
+              type: string
+            Customer_Territory: 
+              type: string
+            Customer_Subsidiary: 
+              type: string
+            Project_Status: 
+              type: string
+            Project_Type: 
+              type: string
+            SOW_Date: 
+              type: string
+              format: date
+            Comments: 
+              type: string
+            Delivery_Model: 
+              type: string
+            Billing_Type: 
+              type: string
+            Is_T&M_Monthly: 
+              type: boolean
+            Billing_Schedule: 
+              type: string
+            Start_Date: 
+              type: string
+              format: date
+          
+          required:
+            - RequestType
+            - Data
+            - Internal_ID
+            - Project_ID
+            - Project_Name
+            - Customer_Name
+            - Client_Partner
+            - Customer_Territory
+            - Customer_Subsidiary
+            - Project_Status
+            - Project_Type
+            - SOW_Date
+            - Comments
+            - Delivery_Model
+            - Billing_Type
+            - Is_T&M_Monthly
+            - Billing_Schedule
+            - Start_Date
+                          
+    2275_Response:
+      type: object
+      properties:
+        Internal Id:
+          type: integer
+        Name: 
+          type: string
+          
+    2287_Response:  
+      type: object 
+      properties:
+        Data:
+          type: object 
+          properties:
+            Date: 
+              type: string
+            Employee: 
+              type: string
+            Employee_First_Name: 
+              type: string
+            Employee_Middle_Name: 
+              type: string
+            Employee_Last_Name: 
+              type: string
+            Employee_Id: 
+              type: string
+            Employee_Inc_Id: 
+              type: string
+            Customer: 
+              type: string  # You may choose the appropriate type for null values
+            Customer_Subsidiary: 
+              type: string
+            Project_Id: 
+              type: string
+            Project_ID: 
+              type: string  # You may choose the appropriate type for null values
+            Project_Name: 
+              type: string
+            Task: 
+              type: string
+            Item: 
+              type: string
+            Duration: 
+              type: string
+            Billable: 
+              type: boolean
+            Location: 
+              type: string
+            Rate: 
+              type: string
+            Employee_Subsidiary: 
+              type: string
+            End_Customer: 
+              type: string  # You may choose the appropriate type for null values
+            Billing_Type: 
+              type: string
+            Project_Type: 
+              type: string
+            Approval_Status: 
+              type: string
+          
+          required:
+            - RequestType
+            - Data
+            - Date
+            - Employee
+            - Employee_First_Name
+            - Employee_Middle_Name
+            - Employee_Last_Name
+            - Employee_Id
+            - Employee_Inc_Id
+            - Customer
+            - Customer_Subsidiary
+            - Project_Id
+            - Project_ID
+            - Project_Name
+            - Task
+            - Item
+            - Duration
+            - Billable
+            - Location
+            - Rate
+            - Employee_Subsidiary
+            - End_Customer
+            - Billing_Type
+            - Project_Type
+            - Approval_Status
+            
+            
+            
+    Response:
+      type: object 
+      properties: 
+        Data:
+          type: object 
+          properties:
+          
+            Account: 
+              type: string
+            Type: 
+              type: string
+            Date: 
+              type: string
+            Document_Number: 
+              type: string
+            Name: 
+              type: string
+            Amount: 
+              type: string
+            Currency: 
+              type: string
+            Billing_From: 
+              type: string
+            Billing_To: 
+              type: string
+            Customer: 
+              type: string
+            Project_ID: 
+              type: string
+            Proj_Name: 
+              type: string
+            Employee_ID: 
+              type: string
+            Emp_Name: 
+              type: string
+            Parent_Executing_Practice: 
+              type: string
+            Practice: 
+              type: string
+            Parent_Practice: 
+              type: string
+            Territory: 
+              type: string
+            Location: 
+              type: string
+            Memo_main: 
+              type: string
+            Memo: 
+              type: string
+            Description: 
+              type: string
+            Item: 
+              type: string
+            Units: 
+              type: string
+            Employee_type: 
+              type: string
+            Person_type: 
+              type: string
+            Onsite_Offsite: 
+              type: string
+            Billing_type: 
+              type: string
+            Proj_Category: 
+              type: string
+            Subsidiary: 
+              type: string
+            Project_Region: 
+              type: string
+            Period: 
+              type: string
+          
+          required:
+           - RequestType
+            Data
+            Account
+            Type
+            Date
+            Document_Number
+            Name
+            Amount
+            Currency
+            Billing_From
+            Billing_To
+            Customer
+            Project_ID
+            Proj_Name
+            Employee_ID
+            Emp_Name
+            Parent_Executing_Practice
+            Practice
+            Parent_Practice
+            Territory
+            Location
+            Memo_main
+            Memo
+            Description
+            Item
+            Units
+            Employee_type
+            Person_type
+            Onsite_Offsite
+            Billing_type
+            Proj_Category
+            Subsidiary
+            Project_Region
+            Period
+            
+    2280_Response:
+      type: object
+      properties: 
+        Data:
+          type: object 
+          properties:
+            Account: 
+              type: string
+            Name: 
+              type: string
+            Name_2: 
+              type: string
+            Type: 
+              type: string
+            Date: 
+              type: string
+            Document_Number: 
+              type: string
+            Amount: 
+              type: string
+            Currency: 
+              type: string
+            Billing_From: 
+              type: string
+            Billing_To: 
+              type: string
+            Customer: 
+              type: string
+            Project_ID: 
+              type: string
+            Proj_Name: 
+              type: string
+            Employee_ID: 
+              type: string
+            Emp_Name: 
+              type: string
+            Parent_Executing_Practice: 
+              type: string
+            Practice: 
+              type: string
+            Parent_Practice: 
+              type: string
+            Territory: 
+              type: string
+            Location: 
+              type: string
+            Memo_main: 
+              type: string
+            Memo: 
+              type: string
+            Description: 
+              type: string
+            Item: 
+              type: string
+            Units: 
+              type: string
+            Employee_type: 
+              type: string
+            Person_type: 
+              type: string
+            Onsite_Offsite: 
+              type: string
+            Billing_type: 
+              type: string
+            Proj_Category: 
+              type: string
+            Subsidiary: 
+              type: string
+            Project_Region: 
+              type: string
+            Period: 
+              type: string
+          
+          required:
+            - RequestType
+            - Data
+            - Account
+            - Type
+            - Date
+            - Document_Number
+            - Amount
+            - Currency
+            - Billing_From
+            - Billing_To
+            - Customer
+            - Project_ID
+            - Proj_Name
+            - Employee_ID
+            - Emp_Name
+            - Parent_Executing_Practice
+            - Practice
+            - Parent_Practice
+            - Territory
+            - Location
+            - Memo_main
+            - Memo
+            - Description
+            - Item
+            - Units
+            - Employee_type
+            - Person_type
+            - Onsite_Offsite
+            - Billing_type
+            - Proj_Category
+            - Subsidiary
+            - Project_Region
+            - Period
+            
+            
+    2484_Response:
+      type: object 
+      properties:
+        VerticalMaster:
+          type: object 
+          properties:
+            Internal_ID: 
+              type: integer
+            Vertical_Name: 
+              type: string
+            Vertical_Head: 
+              type: string
+            Vertical_Type: 
+              type: string
+            Parent Vertical: 
+              type: string  # You may choose the appropriate type for null values
+            Parent Vertical Id: 
+              type: string  # You may choose the appropriate type for null values
+        MicroVertical:
+          type: object 
+          properties:
+            Micro_vertical_internal_id: 
+              type: string
+            Name: 
+              type: string
+        InvestorVertical:
+          type: object 
+          properties:
+            Name: 
+              type: string
+              
+              
+    2864_Response:
+      type: object 
+      properties:
+        Data:
+          type: object 
+          properties: 
+            currentDate:
+              type: string
+              format: date
+            ReceviedData: 
+              type : string 
+              
+    2871_Response:
+      type: object 
+      properties:
+        data:
+          type: object 
+          properties:
+            Status:
+              type: boolean
+            data: 
+              type: object 
+              properties:
+                ID: 
+                  type: integer
+                EmployeeID:
+                  type: string
+                Emp_Display_Name:
+                  type: string 
+                EmployeeType:
+                  type: string 
+                PersonType:
+                  type: string 
+                Designation:
+                  type: string 
+                Role:
+                  type: string 
+                FirstName:
+                  type: string 
+                MiddleName:
+                  type: string 
+                LastName:
+                  type: string 
+                Department:
+                  type: string 
+                LegalEntity:
+                  type: string
+                Employee_InActive:
+                  type: string 
+                WorkEmail:
+                  type: string 
+                Band:
+                  type: string
+                AttendanceTracking:
+                  type: string 
+                Phone:
+                  type: integer 
+                HireDate:
+                  type: string
+                TerminationDate:
+                  type: string 
+                Gender:
+                  type: string 
+                Hourly_Salaried:
+                  type: string 
+                ManagerEmail:
+                  type: string 
+                ManagerPersonNumber:
+                  type: string 
+                PersonID:
+                  type: string 
+                EmployerId:
+                  type: string 
+                AssignmentNumber:
+                  type: string 
+                ManagerDisplayName:
+                  type: string 
+                BrillioLocation:
+                  type: string 
+                LegalEntityFusion:
+                  type: string 
+                EmployeeCategory:
+                  type: string
+                  
+    2636_Response:
+      type: object 
+      properties:
+        data:
+          type: object 
+          properties:
+            Status:
+              type: boolean
+            data: 
+              type: object 
+              properties:
+                ID: 
+                  type: integer
+                EmployeeID:
+                  type: string
+                Emp_Display_Name:
+                  type: string 
+                EmployeeType:
+                  type: string 
+                PersonType:
+                  type: string 
+                Designation:
+                  type: string 
+                Role:
+                  type: string 
+                FirstName:
+                  type: string 
+                MiddleName:
+                  type: string 
+                LastName:
+                  type: string 
+                Department:
+                  type: string 
+                LegalEntity:
+                  type: string
+                Employee_InActive:
+                  type: string 
+                WorkEmail:
+                  type: string 
+                Band:
+                  type: string
+                AttendanceTracking:
+                  type: string 
+                Phone:
+                  type: integer 
+                HireDate:
+                  type: string
+                  format: date
+                TerminationDate:
+                  type: string 
+                  format: date
+                Gender:
+                  type: string 
+                Hourly_Salaried:
+                  type: string 
+                ManagerEmail:
+                  type: string 
+                ManagerPersonNumber:
+                  type: string 
+                PersonID:
+                  type: string 
+                EmployerId:
+                  type: string 
+                AssignmentNumber:
+                  type: string 
+                ManagerDisplayName:
+                  type: string 
+                BrillioLocation:
+                  type: string 
+                LegalEntityFusion:
+                  type: string 
+                EmployeeCategory:
+                  type: string
+                Subpracticehead:
+                  type: string 
+                ParentPracticeId:
+                  type: string 
+                  
+    2269_Response:
+      type: object 
+      properties:
+        Data:
+          type: object 
+          properties:
+            Internal_ID: 
+              type: string
+            Year: 
+              type: string
+            USD_INR_Revenue_Rate: 
+              type: string
+            USD_INR_Cost_Rate: 
+              type: string
+            USD_GBP: 
+              type: string
+            USD_EUR: 
+              type: string
+            USD_AUD: 
+              type: string
+            USD_CAD: 
+              type: string
+            USD_RON: 
+              type: string
+              
+    2274_Response:
+      type: object
+      properties:
+        Data:
+          type: object
+          properties:
+            Internal_ID:
+              type: string 
+            Name: 
+              type: string
+            Date:
+              type: string 
+              format: date
+            Location:
+              type: string
+              
+    2580_Response:
+      type: object 
+      properties:
+        Data:
+          type: object 
+          properties:
+            
+            Employee_Id: 
+              type: string
+            Regions: 
+              type: string
+            Customer: 
+              type: string
+            Ebita: 
+              type: boolean
+            Vertical: 
+              type: string
+            Practice: 
+              type: string
+            Include_All_Practice: 
+              type: boolean
+            Include_All_Region: 
+              type: boolean
+            Include_All_Customer: 
+              type: boolean
+            Include_All_vertical: 
+              type: boolean
+              
+              
+    2528_Response_1:
+      type: object 
+      properties:
+        Data:
+          type: object 
+          properties:
+            Status:
+              type: string
+            TimesheetId:
+              type: string 
+            EmployeeName:
+              type: string 
+            WeekStartDate:
+              type: string 
+            WeekEndDate:
+              type: string
+            TotalApprovable:
+              type: string 
+            Project:
+              type: string
+            
+            
+            
+    2528_Response_2:
+      type: object 
+      properties:
+        Data:
+          type: object 
+          properties:
+            Id: 
+              type: string 
+            Message:
+              type: string 
+              example : 'TS Updated With Approved Status'
+              
+    2528_Response_3:
+      type: object 
+      properties:
+        Data:
+          type: object 
+          properties:
+            Id: 
+              type: string 
+            Message:
+              type: string 
+              example : 'TS Updated With Rejection Status'   
+              
+    2016_Response:
+      type: object 
+      properties:
+        Data:
+          type: object 
+          properties:
+            ID:   
+              type: integer
+            Employee:
+              type: string 
+            WeekStartDate:
+              type: string
+              format: date
+            WeekEndDate:
+              type: string 
+              format: date
+            TotalHrs:
+              type: string
+            ApprovalStatus:
+              type: string 
+            Approver:
+              type: string
+            SubmittedDate:
+              type: string
+              format: date
+      
+              
+            
