@@ -4,11 +4,7 @@
     "title": "Project Allocation API",
     "version": "1.0.0"
   },
-  "tags": [
-    {
-      "name": "Project Allocation"
-    }
-  ],
+
   "servers": [
     {
       "url": "https://restlets.api.netsuite.com"
